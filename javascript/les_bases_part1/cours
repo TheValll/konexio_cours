@@ -2,8 +2,9 @@ alert("hello")
 prompt("question ...")
 let = ;
 console.log(..);
+console.log( typeof ..); = connaitre la data type de la variable
 
-Data types :
+// Data types :
 
 String = chaine de caracteres
 Number = nombre
@@ -12,3 +13,36 @@ Undefined = indefini
 Null = vide 
 BigInt = pour de gros nombre
 Symbol = https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+
+// Les types de variables :
+
+let : stocker et modifier une valeur
+const : stocker une valeur et d'interdire une modification
+var : ancienne version de let et libre partout
+
+
+// Les operateurs : 
+
+let age = 21;
+let date = age - 2023;
+
+const name = "valentin"
+const lastName = "massonniere"
+console.log(name + "" + lastName);
+
+let x = 5 + 10 //15
+x += 10; //ajoute 10
+x *=10; //multiplie par 10
+x --; //enleve 1
+x ++; //ajoute 1
+x /= 2; //divise par 2
+
+console.log(function<function); //< > <= >=
+
+
+// Operateurs precedences :
+
+let a, b;
+a = b = 25 - 10 - 5;
+console.log(a, b);
+
