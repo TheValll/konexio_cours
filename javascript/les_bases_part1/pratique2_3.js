@@ -1,5 +1,5 @@
 let isIsland = false;
-let language = "Français";
+let language = "french";
 let country = "France";
 let population = 68;
 let continent = "Europe";
@@ -19,7 +19,17 @@ let averagePopuation = 33;
 // population /= 2;
 // population++;
 // console.log(population > populationFineland);
-console.log(population < averagePopuation);
+// console.log(population < averagePopuation);
 
-let description = `La ${country} est en ${continent}, et ses ${population} parlent le ${language}`;
+let oldDescription =
+  country +
+  " is in " +
+  continent +
+  ", and it's " +
+  population +
+  " million people speak " +
+  language;
+console.log(oldDescription);
+
+let description = `${country} is in ${continent}, and it's ${population} million people speak ${language}`;
 console.log(description);

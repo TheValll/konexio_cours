@@ -33,6 +33,7 @@ console.log(name + "" + lastName);
 let x = 5 + 10 //15
 x += 10; //ajoute 10
 x *=10; //multiplie par 10
+x-=10 //enleve 10
 x --; //enleve 1
 x ++; //ajoute 1
 x /= 2; //divise par 2
@@ -46,3 +47,6 @@ let a, b;
 a = b = 25 - 10 - 5;
 console.log(a, b);
 
+= asigner une valeur
+== comparaison simple sans prendre en compte la data type
+=== comparaison strict en prenant en compte la data type
