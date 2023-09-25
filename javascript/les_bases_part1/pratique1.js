@@ -1,8 +1,8 @@
-let Country = "France";
-let Population = 68;
-let Continent = "Europe";
+let country = "France";
+let population = 68;
+let continent = "Europe";
 console.group("MesInformations");
-console.log(Country);
-console.log(Population);
-console.log(Continent);
+console.log(country);
+console.log(population);
+console.log(continent);
 console.groupEnd();

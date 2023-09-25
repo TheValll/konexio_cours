@@ -1,0 +1,10 @@
+let isIsland = false;
+let language;
+let country = "France";
+let population = 68;
+let continent = "Europe";
+console.log(typeof isIsland);
+console.log(typeof language);
+console.log(typeof country);
+console.log(typeof population);
+console.log(typeof continent);

@@ -2,3 +2,13 @@ alert("hello")
 prompt("question ...")
 let = ;
 console.log(..);
+
+Data types :
+
+String = chaine de caracteres
+Number = nombre
+Boolean = true or false
+Undefined = indefini
+Null = vide 
+BigInt = pour de gros nombre
+Symbol = https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Symbol
