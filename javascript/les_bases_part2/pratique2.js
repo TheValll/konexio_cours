@@ -1,8 +1,7 @@
 function percentageOfWorld1(population, country) {
-  population = `${country} has ${population} million people, so it's about ${
+  return `${country} has ${population} million people, so it's about ${
     (population * 100) / 7900
   } % of the world population .`;
-  return population;
 }
 
 let populationFrance = percentageOfWorld1(8, "France");
@@ -23,17 +22,15 @@ const france = function percentageOfWorld2(population, country) {
 };
 
 const finland = function percentageOfWorld2(population, country) {
-  population = `${country} has ${population} million people, so it's about ${
+  return `${country} has ${population} million people, so it's about ${
     (population * 100) / 7900
   } % of the world population .`;
-  return population;
 };
 
 const germany = function percentageOfWorld2(population, country) {
-  population = `${country} has ${population} million people, so it's about ${
+  return `${country} has ${population} million people, so it's about ${
     (population * 100) / 7900
   } % of the world population .`;
-  return population;
 };
 
 console.group("descCountry2");
