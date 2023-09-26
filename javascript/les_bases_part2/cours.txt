@@ -1,0 +1,15 @@
+function describeCountry(country, population, capitalCity) {
+  const response = `${country} has ${population} million people and its capital city is ${capitalCity}.`;
+  return response;
+}
+
+let descFrance = describeCountry("France", 68, "Paris");
+
+const percentageOfWorld2 = function (population, country) {
+  return `${country} has ${population} million people, so it's about ${
+    (population * 100) / 7900
+  } % of the world population .`;
+};
+
+console.log(percentageOfWorld2(8, "France"));
+

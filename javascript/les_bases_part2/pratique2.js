@@ -14,27 +14,14 @@ console.log(populationFinland);
 console.log(populationGermany);
 console.groupEnd();
 
-const france = function percentageOfWorld2(population, country) {
-  population = `${country} has ${population} million people, so it's about ${
-    (population * 100) / 7900
-  } % of the world population .`;
-  return population;
-};
-
-const finland = function percentageOfWorld2(population, country) {
-  return `${country} has ${population} million people, so it's about ${
-    (population * 100) / 7900
-  } % of the world population .`;
-};
-
-const germany = function percentageOfWorld2(population, country) {
+const percentageOfWorld2 = function (population, country) {
   return `${country} has ${population} million people, so it's about ${
     (population * 100) / 7900
   } % of the world population .`;
 };
 
 console.group("descCountry2");
-console.log(france(8, "France"));
-console.log(finland(68, "Finland"));
-console.log(germany(6, "Germany"));
+console.log(percentageOfWorld2(8, "France"));
+console.log(percentageOfWorld2(68, "Finland"));
+console.log(percentageOfWorld2(6, "Germany"));
 console.groupEnd();
