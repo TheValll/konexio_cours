@@ -50,3 +50,15 @@ console.log(a, b);
 = asigner une valeur
 == comparaison simple sans prendre en compte la data type
 === comparaison strict en prenant en compte la data type
+
+// Les valeurs flasy :
+
+0 
+"" 
+undefined 
+null 
+NaN
+
+AND 2 conditions &&
+OR  1 condition ||
+NOT inverse la valeur !variable
