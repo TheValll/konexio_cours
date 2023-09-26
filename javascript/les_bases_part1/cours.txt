@@ -80,3 +80,7 @@ switch (language) {
 const numNeighbours = Number(
   prompt("« Combien de pays frontaliers a votre pays ?")
 ); 
+
+Difference entre expressions et statement
+
+On ne peut pas utiliser de statements directement dans un template literals !
