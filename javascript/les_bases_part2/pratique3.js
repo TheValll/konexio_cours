@@ -1,9 +1,3 @@
-// let percentageOfWorld3 = (population, country) => {
-//   return `${country} has ${population} million people, so it's about ${
-//     (population * 100) / 7900
-//   } % of the world population .`;
-// };
-
 let percentageOfWorld3 = (population, country) => {
   return `${country} has ${population} million people, so it's about ${
     (population * 100) / 7900
