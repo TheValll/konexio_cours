@@ -62,3 +62,21 @@ NaN
 AND 2 conditions &&
 OR  1 condition ||
 NOT inverse la valeur !variable
+
+if(variable) = if(variable = true)
+
+let language;
+switch (language) {
+  case "chinese":
+    console.log("MOST number of native speakers!");
+    break;
+      default:
+    console.log("Great language too :D");
+}
+
+
+// convertir une strict en number :
+
+const numNeighbours = Number(
+  prompt("« Combien de pays frontaliers a votre pays ?")
+); 
