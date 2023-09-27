@@ -90,3 +90,40 @@
 // console.log(
 //   `${hediDesc.firstname} has ${hediDesc.friends.length} friends, and his best friend is called ${hediDesc.bestFriend}.`
 // );
+
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`oui ${rep}`);
+// }
+
+// const hediArraw = [
+//   "hedi",
+//   "rivas",
+//   2037 - 1991,
+//   ["steven", "paul"],
+//   true,
+//   "oui",
+// ];
+// const types = [];
+// console.log(hediArraw);
+// for (let i = 0; i < hediArraw.length; i++) {
+//   console.log(typeof hediArraw[i]);
+//   types.push(typeof hediArraw[i]);
+// }
+// console.log(types);
+// for (let i = 0; i < hediArraw.length; i++) {
+//   if (typeof hediArraw[i] !== "string") continue;
+//   console.log(hediArraw[i], typeof hediArraw[i]);
+// }
+
+// for (let i = 0; i < hediArraw.length; i++) {
+//   if (typeof hediArraw[i] === "number") break;
+//   console.log(hediArraw[i], typeof hediArraw[i]);
+// }
+/////////////////////////////////////////////
+
+// const years = [1991, 2007, 1969, 2020];
+// const ages = [];
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2037 - years[i]);
+// }
+// console.log(ages);
