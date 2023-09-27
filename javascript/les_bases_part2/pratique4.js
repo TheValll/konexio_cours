@@ -5,7 +5,7 @@ const percentageOfWorld2 = (population) => {
 const describePopulation = (country, population) => {
   return `${country} has ${population} million people,so it's about ${percentageOfWorld2(
     population
-  )}  of the world population.`;
+  )}  % of the world population.`;
 };
 
-console.log(describePopulation("france", 8));
+console.log(describePopulation("france", 47));
