@@ -7,8 +7,6 @@ let b;
 
 inputValeurA.addEventListener("input", (e) => {
   a = parseInt(e.target.value);
-  {
-  }
 });
 
 inputValeurB.addEventListener("input", (e) => {
@@ -22,12 +20,16 @@ const pythagore = (num1, num2) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (typeof a === "number" || typeof b === "number") {
+  if (typeof a === "number" && typeof b === "number") {
     pythagore(a, b);
     document.querySelector("form > div").innerHTML = `
     <p>L'hypothenus est egal a ${response} (dans votre unite de mesure).</p>
     `;
+    console.log(typeof a);
+    console.log(typeof b);
   } else {
     alert("Veuillez saisir des valeurs correcte ( des nombres )");
+    console.log(typeof a);
+    console.log(typeof b);
   }
 });
