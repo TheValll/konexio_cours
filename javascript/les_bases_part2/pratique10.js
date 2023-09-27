@@ -10,5 +10,5 @@ myCountry.population += 72;
 myCountry["population"] -= 89;
 
 console.log(
-  `${myCountry.country} has ${myCountry.population} ${myCountry.country} people, ${myCountry.neighbours.length} and a capital called ${myCountry.capital}`
+  `${myCountry.country} has ${myCountry.population} ${myCountry.country} people, ${myCountry.neighbours.length} neighbours and a capital called ${myCountry.capital}`
 );
