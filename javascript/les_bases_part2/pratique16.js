@@ -4,7 +4,7 @@ const percentageOfWorld = (population) => {
 };
 const percentageOfWorld2 = [];
 for (let i = 0; i < populations.length; i++) {
-  percentageOfWorld2.push((populations[i] * 100) / 7900);
+  percentageOfWorld2.push(percentageOfWorld(populations[i]));
 }
 console.log(percentageOfWorld2);
 

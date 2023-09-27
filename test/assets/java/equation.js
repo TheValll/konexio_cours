@@ -6,13 +6,13 @@ let a;
 let b;
 
 inputValeurA.addEventListener("input", (e) => {
-  a = e.target.value;
+  a = parseInt(e.target.value);
   {
   }
 });
 
 inputValeurB.addEventListener("input", (e) => {
-  b = e.target.value;
+  b = parseInt(e.target.value);
 });
 
 const pythagore = (num1, num2) => {
@@ -22,12 +22,12 @@ const pythagore = (num1, num2) => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  if (typeof a == "number" || typeof b !== "number") {
+  if (typeof a === "number" || typeof b === "number") {
     pythagore(a, b);
     document.querySelector("form > div").innerHTML = `
     <p>L'hypothenus est egal a ${response} (dans votre unite de mesure).</p>
     `;
   } else {
-    alert("Veuillez saisir des valeurs");
+    alert("Veuillez saisir des valeurs correcte ( des nombres )");
   }
 });

@@ -95,14 +95,7 @@
 //   console.log(`oui ${rep}`);
 // }
 
-// const hediArraw = [
-//   "hedi",
-//   "rivas",
-//   2037 - 1991,
-//   ["steven", "paul"],
-//   true,
-//   "oui",
-// ];
+// const hediArraw = ["hedi", "rivas", 2037 - 1991, ["steven", "paul"], true];
 // const types = [];
 // console.log(hediArraw);
 // for (let i = 0; i < hediArraw.length; i++) {
@@ -127,3 +120,14 @@
 //   ages.push(2037 - years[i]);
 // }
 // console.log(ages);
+
+// for (let i = hediArraw.length - 1; i >= 0; i--) {
+//   console.log(i, typeof hediArraw[i]);
+// }
+
+// for (let exercice = 1; exercice < 4; exercice++) {
+//   console.log(`----Exercice---- ${exercice}`);
+//   for (let rep = 5; rep > 0; rep--) {
+//     console.log(`Exercie ${exercice} : Lift ${rep}`);
+//   }
+// }
