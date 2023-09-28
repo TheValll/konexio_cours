@@ -50,6 +50,10 @@
 // if (friends.includes("Steven")) {
 //   console.log("You have a friends called Steven.");
 // }
+// friends.splice(0, 2); // supprime les elements de la place donner et ne prends pas en compte le 2eme chiffre, il faut creer une constante avec slice car il ne modifier le tableau
+// friends.filter(function (nom) {
+//   return friends.length > 6; // retourne les elements avec plus de 6 caractere
+// }); // filtre le tableau, creer une const apart pour copier le nouveau tableau filter
 
 // const myCountry = {
 //   country: "France",
