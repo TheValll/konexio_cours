@@ -26,32 +26,15 @@ playInput.addEventListener("click", () => {
   let score = 0;
   let secretSolution;
   discussionInput.textContent = "I chose, you turn ...";
-});
 
-//   // Choix d'un chiffre aléatoire entre 1 et 3
-//   let randomSolution = () => {
-//     let random = Math.floor(Math.random() * 3 + 1);
-//     return random;
-//   };
-//   let random = randomSolution();
+  // Choix d'un chiffre aléatoire entre 1 et 3
+  let randomSolution = () => {
+    let random = Math.floor(Math.random() * 3 + 1);
+    return random;
+  };
+  let random = randomSolution();
 
-//   // Definition entre pierre feuille et ciseaux
-//   if (random === 1) {
-//     secretSolution = stoneBotInput;
-//     console.log("pierre");
-//   } else if (random === 2) {
-//     secretSolution = paperBotInput;
-//     console.log("feuille");
-//   } else if (random) {
-//     secretSolution = scissorsBotInput;
-//     console.log("ciseux");
-//   }
-
-let randomSolution = () => {
-  return Math.floor(Math.random() * 3 + 1);
-};
-
-let choiseAttacx = () => {
+  // Definition entre pierre feuille et ciseaux
   if (random === 1) {
     secretSolution = stoneBotInput;
     console.log("pierre");
@@ -62,4 +45,4 @@ let choiseAttacx = () => {
     secretSolution = scissorsBotInput;
     console.log("ciseux");
   }
-};
+});
