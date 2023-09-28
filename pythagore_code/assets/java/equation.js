@@ -8,6 +8,7 @@ let b;
 inputValeurA.addEventListener("input", (e) => {
   a = parseInt(e.target.value);
 });
+vc;
 
 inputValeurB.addEventListener("input", (e) => {
   b = parseInt(e.target.value);
