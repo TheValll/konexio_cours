@@ -1,0 +1,15 @@
+@import "./_settings.scss";
+@import "./layouts/_header.scss";
+@import "./layouts/_main.scss";
+@import "./layouts/_footer.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bgcolor;
+  overflow-y: hidden;
+}

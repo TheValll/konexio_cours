@@ -1,0 +1,27 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+  .again-btn {
+    button {
+      text-transform: uppercase;
+      background-color: $white;
+      border: none;
+      font-size: 2rem;
+      font-family: "Press Start 2P", sans-serif;
+      padding: 2rem 3rem;
+      cursor: pointer;
+      &:hover {
+        background-color: $btncolor;
+      }
+    }
+  }
+  .title_game {
+    color: $white;
+    text-transform: uppercase;
+    font-family: "Press Start 2P", sans-serif;
+    font-size: 0.7rem;
+    text-align: center;
+  }
+}

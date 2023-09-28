@@ -1,0 +1,138 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px;
+}
+header .again-btn button {
+  text-transform: uppercase;
+  background-color: #eee;
+  border: none;
+  font-size: 2rem;
+  font-family: "Press Start 2P", sans-serif;
+  padding: 2rem 3rem;
+  cursor: pointer;
+}
+header .again-btn button:hover {
+  background-color: #ccc;
+}
+header .title_game {
+  color: #eee;
+  text-transform: uppercase;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.main_section {
+  margin: 30px;
+  position: relative;
+}
+.main_section .defeatMe_title {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  text-align: center;
+  font-family: "Press Start 2P", sans-serif;
+  color: #eee;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.main_section .bot-discussion p {
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-align: center;
+  font-family: "Press Start 2P", sans-serif;
+  color: #eee;
+  margin: 40px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.main_section .bot-response img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 40%;
+  left: 50%;
+}
+.main_section .bot-response #stoneBot-logo {
+  display: none;
+}
+.main_section .bot-response #paperBot-logo {
+  display: none;
+}
+.main_section .bot-response #scissorsBot-logo {
+  display: none;
+}
+.main_section .score_game {
+  display: flex;
+  margin-top: 100px;
+  margin-right: 50px;
+  flex-direction: column;
+  align-items: end;
+}
+.main_section .score_game p {
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: "Press Start 2P", sans-serif;
+  color: #eee;
+}
+.main_section .img-player {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.main_section .img-player img {
+  margin: 10px;
+}
+.main_section .play-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.main_section .play-btn button {
+  text-transform: uppercase;
+  background-color: #eee;
+  border: none;
+  font-size: 0.9rem;
+  font-family: "Press Start 2P", sans-serif;
+  padding: 0.9rem 1.9rem;
+  text-align: center;
+  cursor: pointer;
+}
+.main_section .play-btn button:hover {
+  background-color: #ccc;
+}
+
+footer {
+  position: relative;
+}
+
+.game_result {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 15%;
+  top: -350px;
+}
+.game_result p {
+  color: #eee;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #222;
+  overflow-y: hidden;
+}/*# sourceMappingURL=index.css.map */
