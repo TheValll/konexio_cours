@@ -38,8 +38,8 @@ const int = () => {
   playing = true;
 
   diceEl.classList.add("hidden");
-  player0.classList.remove("player-winner");
-  player1.classList.remove("player-winner");
+  player0.classList.remove("player--winner");
+  player1.classList.remove("player--winner");
   player0.classList.add("player-active");
   player1.classList.remove("player-active");
 };
@@ -82,7 +82,7 @@ btnHold.addEventListener("click", () => {
       scores[activeplayer];
   }
 
-  if (scores[activeplayer] >= 99) {
+  if (scores[activeplayer] >= 5) {
     playing = false;
     document
       .querySelector(`.player--${activeplayer}`)
