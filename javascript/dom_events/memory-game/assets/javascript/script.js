@@ -6,25 +6,33 @@ const movesCount = document.querySelector("#moves").textContent;
 const highscore = document.querySelector("#highscore").textContent;
 const test = [];
 const test2 = [];
+let devoiled = [];
 
 // GIVE RANDOM NUMBERS AT CARD
 const random = () => {
   for (let i = 0; i < cardInput.length; i++) {
     cardInput[i].addEventListener("click", () => {
-      const numbers = [];
-      while (numbers.length < 1) {
-        const randomNumber = Math.floor(Math.random() * 8) + 1;
-        if (!test.includes(randomNumber)) {
-          test.push(randomNumber);
-          numbers.push(randomNumber);
-        } else if (!test2.includes(randomNumber)) {
-          test2.push(randomNumber);
-          numbers.push(randomNumber);
+      if (devoiled[i]) {
+        alert("Vous avez déjà retourné cette carte");
+      } else {
+        const numbers = [];
+        while (numbers.length < 1) {
+          const randomNumber = Math.floor(Math.random() * 8) + 1;
+          if (!test.includes(randomNumber)) {
+            test.push(randomNumber);
+            numbers.push(randomNumber);
+          } else if (!test2.includes(randomNumber)) {
+            test2.push(randomNumber);
+            numbers.push(randomNumber);
+          }
         }
+        cardInput[
+          i
+        ].style.background = `url(./assets/img/${numbers[0]}.jpg) center/cover`;
+        devoiled[i] = true;
       }
-      cardInput[
-        i
-      ].style.background = `url(./assets/img/${numbers[0]}.jpg) center/cover`;
     });
   }
 };
+
+random();
