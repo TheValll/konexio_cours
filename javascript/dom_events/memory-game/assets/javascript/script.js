@@ -2,13 +2,13 @@
 
 const cardInput = document.querySelectorAll(".card");
 const reloadInput = document.querySelector("#reload");
-const movesCount = document.querySelector("#moves").textContent;
+let movesCount = document.querySelector("#moves").textContent;
 const highscore = document.querySelector("#highscore").textContent;
+
+// RANDOM CARD FUNCT
 const test = [];
 const test2 = [];
 let devoiled = [];
-
-// GIVE RANDOM NUMBERS AT CARD
 const random = () => {
   for (let i = 0; i < cardInput.length; i++) {
     cardInput[i].addEventListener("click", () => {
@@ -34,5 +34,3 @@ const random = () => {
     });
   }
 };
-
-random();
