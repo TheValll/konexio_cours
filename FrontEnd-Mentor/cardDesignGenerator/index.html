@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <title>Carte bancaire interractive</title>
+  </head>
+  <body>
+    <section class="left--page">
+      <div class="left--page--container">
+        <div class="card--front">
+          <div class="card--front--container">
+            <div class="card--front--logo">
+              <svg
+                width="84"
+                height="47"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <ellipse
+                  cx="23.478"
+                  cy="23.5"
+                  rx="23.478"
+                  ry="23.5"
+                  fill="#fff"
+                />
+                <path
+                  d="M83.5 23.5c0 5.565-4.507 10.075-10.065 10.075-5.559 0-10.065-4.51-10.065-10.075 0-5.565 4.506-10.075 10.065-10.075 5.558 0 10.065 4.51 10.065 10.075Z"
+                  stroke="#fff"
+                />
+              </svg>
+            </div>
+            <div class="card--front--infos">
+              <p id="card-number">0000 0000 0000 0000</p>
+              <div class="card--front--info--flex">
+                <p id="name">jane applesed</p>
+                <p id="date">00/00</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card--back">
+          <p id="cvv">000</p>
+        </div>
+      </div>
+    </section>
+    <section class="right--page">
+      <form action="">
+        <div class="name--container">
+          <label for="surname">cardholder name</label>
+          <input
+            type="text"
+            id="surname"
+            autocomplete="off"
+            placeholder="e.g Jane Applesed"
+          />
+          <span></span>
+        </div>
+        <div class="name--container">
+          <label for="cardNumber">card number</label>
+          <input
+            type="text"
+            id="cardNumber"
+            autocomplete="off"
+            placeholder="e.g 1234 5678 9123 000"
+          />
+          <span></span>
+        </div>
+        <div class="form--grid">
+          <div class="form--flex--date">
+            <label for="mounth">exp. date (mm/yy)</label>
+            <div class="mounth">
+              <input
+                type="text"
+                id="mounth"
+                autocomplete="off"
+                placeholder="mm"
+              />
+            </div>
+            <div class="years">
+              <input
+                type="text"
+                id="years"
+                autocomplete="off"
+                placeholder="yy"
+              />
+            </div>
+            <span></span>
+          </div>
+          <div class="cvc">
+            <label for="cvc">cvc</label>
+            <input
+              type="text"
+              id="cvc"
+              autocomplete="off"
+              placeholder="e.g 123"
+            />
+            <span></span>
+          </div>
+        </div>
+        <input type="submit" value="Confirm" />
+      </form>
+    </section>
+    <script src="./assets/javascript/script.js"></script>
+  </body>
+</html>
+x
