@@ -1,5 +1,7 @@
 @import "./settings";
 @import "./leftPage";
+@import "./rightPage";
+@import "./thanks";
 
 * {
   margin: 0;
@@ -9,4 +11,6 @@
 body {
   display: grid;
   grid-template-columns: 33% 66%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
 }

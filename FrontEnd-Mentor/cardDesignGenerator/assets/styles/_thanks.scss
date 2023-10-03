@@ -1,0 +1,38 @@
+.thanks {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  h2 {
+    text-transform: uppercase;
+    margin-top: 30px;
+    font-weight: 300;
+  }
+  p {
+    margin-top: 10px;
+    color: gray;
+  }
+  button {
+    margin-top: 30px;
+    width: 100%;
+    height: 80px;
+    border: hidden;
+    background-color: #220930;
+    color: white;
+    transition: 0.3s ease-in;
+    border-radius: 5px;
+    border: 1px solid gray;
+    padding: 10px;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 18px;
+    &:hover {
+      border: gray solid 1px;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+.thanksHidden {
+  display: none;
+}

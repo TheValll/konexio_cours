@@ -1,4 +1,68 @@
 .left-page {
   background: url(../img/bg-main-desktop.png) center/cover;
   min-height: 100vh;
+  position: relative;
+  .cards {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 80%;
+    top: 50%;
+    text-transform: uppercase;
+    .card {
+      height: 270px;
+      width: 500px;
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+      color: white;
+    }
+    .front-card {
+      background: url("../img/bg-card-front.png") center/cover;
+      position: relative;
+      #front-logo {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 15%;
+        left: 15%;
+      }
+      #card-number {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        bottom: 30%;
+        font-size: 32px;
+        width: 100%;
+        text-align: center;
+      }
+      #name {
+        position: absolute;
+        left: 5%;
+        bottom: 10%;
+      }
+      #date {
+        position: absolute;
+        right: 5%;
+        bottom: 10%;
+      }
+      .front-card-infos {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    .back-card {
+      background: url("../img/bg-card-back.png") center/cover;
+      margin: 30px 0 0 100px;
+      position: relative;
+      #cvc {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 49%;
+        left: 84%;
+      }
+    }
+  }
 }

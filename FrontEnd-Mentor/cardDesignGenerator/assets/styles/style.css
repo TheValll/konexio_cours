@@ -1,6 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
 .left-page {
   background: url(../img/bg-main-desktop.png) center/cover;
   min-height: 100vh;
+  position: relative;
+}
+.left-page .cards {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 80%;
+  top: 50%;
+  text-transform: uppercase;
+}
+.left-page .cards .card {
+  height: 270px;
+  width: 500px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  color: white;
+}
+.left-page .cards .front-card {
+  background: url("../img/bg-card-front.png") center/cover;
+  position: relative;
+}
+.left-page .cards .front-card #front-logo {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 15%;
+  left: 15%;
+}
+.left-page .cards .front-card #card-number {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: 30%;
+  font-size: 32px;
+  width: 100%;
+  text-align: center;
+}
+.left-page .cards .front-card #name {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+}
+.left-page .cards .front-card #date {
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+}
+.left-page .cards .front-card .front-card-infos {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.left-page .cards .back-card {
+  background: url("../img/bg-card-back.png") center/cover;
+  margin: 30px 0 0 100px;
+  position: relative;
+}
+.left-page .cards .back-card #cvc {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 49%;
+  left: 84%;
+}
+
+.right-page {
+  position: relative;
+}
+.right-page form {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 60%;
+}
+.right-page form .name-container,
+.right-page form .numbers-container,
+.right-page form .date,
+.right-page form .cvc {
+  display: flex;
+  flex-direction: column;
+}
+.right-page form label {
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.right-page form input {
+  border-radius: 5px;
+  border: 1px solid gray;
+  height: 70px;
+  padding: 10px;
+  margin-top: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+}
+.right-page form #mounth {
+  width: 80%;
+}
+.right-page form #years {
+  width: 80%;
+}
+.right-page form .flex-global {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.right-page form .flex-global .date .input-flex {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+.right-page form #confirm {
+  width: 100%;
+  height: 70px;
+  margin-top: 20px;
+  border: hidden;
+  background-color: #220930;
+  color: white;
+  transition: 0.3s ease-in;
+}
+.right-page form #confirm:hover {
+  border: gray solid 1px;
+  background-color: white;
+  color: black;
+}
+
+.thanks {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+.thanks h2 {
+  text-transform: uppercase;
+  margin-top: 30px;
+  font-weight: 300;
+}
+.thanks p {
+  margin-top: 10px;
+  color: gray;
+}
+.thanks button {
+  margin-top: 30px;
+  width: 100%;
+  height: 80px;
+  border: hidden;
+  background-color: #220930;
+  color: white;
+  transition: 0.3s ease-in;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 10px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
+}
+.thanks button:hover {
+  border: gray solid 1px;
+  background-color: white;
+  color: black;
+}
+
+.thanksHidden {
+  display: none;
 }
 
 * {
@@ -12,4 +175,6 @@
 body {
   display: grid;
   grid-template-columns: 33% 66%;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 18px;
 }/*# sourceMappingURL=style.css.map */

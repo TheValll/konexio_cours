@@ -7,10 +7,9 @@
     <title>Number Card Design Generator</title>
   </head>
   <body>
-    <section class="left-page"></section>
-    <section class="right-page">
+    <section class="left-page">
       <div class="cards">
-        <div class="front-card">
+        <div class="front-card card">
           <svg
             id="front-logo"
             width="84"
@@ -24,19 +23,17 @@
               stroke="#fff"
             />
           </svg>
-          <div class="front-card-infos">
-            <p id="card-number">0000 0000 0000 0000</p>
-            <div class="flex-container">
-              <p id="name">jane appleseed</p>
-              <p id="date">00/00</p>
-            </div>
-          </div>
+          <p id="card-number">0000 0000 0000 0000</p>
+          <p id="name">jane appleseed</p>
+          <p id="date">00/00</p>
         </div>
-        <div class="back-card">
+        <div class="back-card card">
           <p id="cvc">000</p>
         </div>
       </div>
-      <form action="">
+    </section>
+    <section class="right-page">
+      <form action="" class="formHidden">
         <div class="name-container">
           <label for="surname">cardholder name</label>
           <input
@@ -45,39 +42,79 @@
             placeholder="e.g. Jane Appleseed"
             autocomplete="off"
           />
-          <span></span>
         </div>
-        <div class="number-container">
-          <label for="number">card number</label>
+        <div class="numbers-container">
+          <label for="numbers">card number</label>
           <input
             type="text"
-            id="number"
+            id="numbers"
             placeholder="e.g. 1234 5678 9123 000"
             autocomplete="off"
           />
           <span></span>
         </div>
-        <div class="form-flex">
-          <label for="expDate">exp date (mm/yy)</label>
-          <div class="mounth-container">
-            <input
-              type="text"
-              id="expDate"
-              placeholder="mm"
-              autocomplete="off"
-            />
-            <div class="years-container">
-              <input
-                type="text"
-                id="expDate"
-                placeholder="yy"
-                autocomplete="off"
-              />
+        <div class="flex-global">
+          <div class="date">
+            <label for="mounth">exp. date (mm/yy)</label>
+            <div class="input-flex">
+              <div class="mounth-container">
+                <input
+                  type="text"
+                  id="mounth"
+                  placeholder="MM"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="years-container">
+                <input
+                  type="text"
+                  id="years"
+                  placeholder="YY"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
             <span></span>
           </div>
+          <div class="cvc">
+            <label for="cvco">cvc</label>
+            <input
+              type="text"
+              id="cvco"
+              placeholder="e.g. 123"
+              autocomplete="off"
+            />
+          </div>
         </div>
-        <input type="submit" value="Confirm">
+        <input type="submit" value="Confirm" id="confirm" />
       </form>
+      <div class="thanks thanksHidden">
+        <svg
+          width="80"
+          height="80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="40" cy="40" r="40" fill="url(#a)" />
+          <path d="M28 39.92 36.08 48l16-16" stroke="#fff" stroke-width="3" />
+          <defs>
+            <linearGradient
+              id="a"
+              x1="-23.014"
+              y1="11.507"
+              x2="0"
+              y2="91.507"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#6348FE" />
+              <stop offset="1" stop-color="#610595" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <h2>thanks you</h2>
+        <p>We've added your card details</p>
+        <button>Continue</button>
+      </div>
     </section>
   </body>
 </html>
