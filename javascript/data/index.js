@@ -42,4 +42,4 @@ let guess = 0;
 // console.log(guess || 10);
 // console.log(guess ?? 10);
 
-// Logical Assignment Operators
+// Logical Assignment Operators permet d'asigner la valeur 0 a des variables
