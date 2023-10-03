@@ -1,17 +1,12 @@
-@import "./_settings.scss";
-@import "./layouts/_leftPage.scss";
-@import "./components/frontCard";
-@import "./components/backCard";
+@import "./settings";
+@import "./leftPage";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
-  font-size: 18px;
   display: grid;
-  grid-template-columns: 30% 70%;
-  min-height: 100vh;
+  grid-template-columns: 33% 66%;
 }

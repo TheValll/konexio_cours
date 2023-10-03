@@ -1,27 +1,6 @@
-.left--page {
+.left-page {
   background: url(../img/bg-main-desktop.png) center/cover;
-  position: relative;
   min-height: 100vh;
-}
-.left--page .left--page--container {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 80%;
-}
-
-.card--front {
-  background: url(../img/bg-card-front.png) center/cover no-repeat;
-  height: 200px;
-  width: 500px;
-  border-radius: 10px;
-}
-
-.card--back {
-  background: url(../img/bg-card-back.png) center/cover;
-  height: 200px;
-  width: 500px;
-  border-radius: 10px;
 }
 
 * {
@@ -31,8 +10,6 @@
 }
 
 body {
-  font-size: 18px;
   display: grid;
-  grid-template-columns: 30% 70%;
-  min-height: 100vh;
+  grid-template-columns: 33% 66%;
 }/*# sourceMappingURL=style.css.map */
