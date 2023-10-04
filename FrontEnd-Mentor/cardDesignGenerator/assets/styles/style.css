@@ -130,6 +130,10 @@
   color: black;
 }
 
+.formHidden {
+  display: none;
+}
+
 .thanks {
   position: absolute;
   transform: translate(-50%, -50%);

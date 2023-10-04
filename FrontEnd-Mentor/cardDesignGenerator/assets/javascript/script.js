@@ -1,5 +1,9 @@
 let surnameVal, cardNumberVal, mounthVal, yearsVal, cvcVal;
 const form = document.querySelector("form");
+const thanks = document.querySelector(".thanks");
+form.classList.remove("formHidden");
+thanks.classList.add("thanksHidden");
+const continueBtn = document.getElementById("continue");
 
 const numbersFormat = document.getElementById("numbers");
 numbersFormat.addEventListener("input", (e) => {
@@ -79,6 +83,7 @@ const cvcChecked = (value) => {
   } else {
     errorDisplay("cvc", "", true, "cvc", value);
     cvcVal = value;
+    console.log(cvcVal);
   }
 };
 
@@ -88,6 +93,7 @@ inputs.forEach((input) => {
     switch (e.target.id) {
       case "surname":
         nameChecked(e.target.value);
+        console.log(e.target.value);
         break;
       case "numbers":
         numbersChecked(numbersFormat.value);
@@ -105,4 +111,35 @@ inputs.forEach((input) => {
         null;
     }
   });
+});
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (surnameVal && cardNumberVal && mounthVal && yearsVal && cvcVal) {
+    const data = {
+      surnameVal,
+      cardNumberVal,
+      mounthVal,
+      yearsVal,
+      cvcVal,
+    };
+    inputs.forEach((input) => {
+      input.value = "";
+    });
+    surnameVal = null;
+    cardNumberVal = null;
+    mounthVal = null;
+    yearsVal = null;
+    cvcVal = null;
+    console.log(data);
+    form.classList.add("formHidden");
+    thanks.classList.remove("thanksHidden");
+  } else {
+    alert("Veuillez remplir correctement le formulaire");
+  }
+});
+
+continueBtn.addEventListener("click", () => {
+  form.classList.remove("formHidden");
+  thanks.classList.add("thanksHidden");
 });
