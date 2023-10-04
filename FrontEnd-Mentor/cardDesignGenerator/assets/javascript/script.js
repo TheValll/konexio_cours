@@ -83,7 +83,6 @@ const cvcChecked = (value) => {
   } else {
     errorDisplay("cvc", "", true, "cvc", value);
     cvcVal = value;
-    console.log(cvcVal);
   }
 };
 
@@ -93,7 +92,6 @@ inputs.forEach((input) => {
     switch (e.target.id) {
       case "surname":
         nameChecked(e.target.value);
-        console.log(e.target.value);
         break;
       case "numbers":
         numbersChecked(numbersFormat.value);

@@ -1,0 +1,63 @@
+Parametres 
+
+Systeme :
+    - ecran :
+        parametres avances changer les hz
+        graphique - parametres graphique enlever la planification et cocher opti jeux
+    - son :
+        autres parametres audio desactiver les audio en trop et enlever l'amelioration du signal
+    - notifications :
+        enlever tous
+        notificatiin de priorite
+        parametres supplementaire decocher les 3 trucs
+    - concentration :
+        desactiver
+    - marche arrete :
+        gerer les alim et la vielle
+    - stocage
+        assistant stocage
+
+Bluethooth :
+    - souris enlever l'acceleration de souris
+
+Custom :
+    - faire a ma sauce
+    - saisie de texte, parametre de saisie, decocher les 2 trucs
+    - demarrer : enlever afficher les elemets recents
+    - barre de tache
+    - utilisation des appareils et tous decocher
+
+Apllication :
+    - carte hors co, maj carte et decocher
+    - app pour les sites webs et tous decocher
+    - demarrage faire le trie
+
+Comptes :
+    - options de connection et enlever utiliser mes infos de connection
+
+Heures et langues :
+    - saisie, parametres avances, touches de raccourcie et desactiver le switch lang clavier
+
+Jeux :
+    - activer les mode jeux
+    - game bar off
+
+Conmf et securite :
+     Autorisation win :
+        - general et tous decocher
+        - entre manuscrite et decocher
+        - diagnostic et desactiver tous et frequence des commentaire sur jamais
+        - historique des activites et decocher et effacer
+    
+    Autorisation de win :
+        - voix turn off
+        - autorisation de recherche et tous enlever
+
+Uptade : 
+    - option avances, opti de la distrib et decocher
+
+Changer alimentation :
+PU Intel 11XXX et plus anciens: Les modes de gestion "Hautes performances" ou "Performances optimales" sont les meilleurs.
+CPU Intel 12XXX et plus récents : Le mode de gestion "Hautes performances" inclus dans Windows est le meilleur.
+CPU AMD Ryzen 3XXX et plus anciens : Le mode de gestion "Ryzen balanced" est le meilleur mode. (il s'installe quand vous installez les pilotes de chipset)
+CPU AMD Ryzen 5XXX et plus récents : Le mode de gestion "Utilisation normale" est le meilleur mode (vous pouvez bouger le slider dans Paramètres -> Système -> Alimentation pour un léger gain).
