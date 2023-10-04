@@ -23,18 +23,20 @@
               stroke="#fff"
             />
           </svg>
-          <p id="card-number">0000 0000 0000 0000</p>
-          <p id="name">jane appleseed</p>
-          <p id="date">00/00</p>
+          <p id="card-change">0000 0000 0000 0000</p>
+          <p id="name-change">jane appleseed</p>
+          <p id="date-change">
+            <span id="mounth-change">00</span>/<span id="years-change">00</span>
+          </p>
         </div>
         <div class="back-card card">
-          <p id="cvc">000</p>
+          <p id="cvc-change">000</p>
         </div>
       </div>
     </section>
     <section class="right-page">
       <form action="" class="formHidden">
-        <div class="name-container">
+        <div class="surname-container">
           <label for="surname">cardholder name</label>
           <input
             type="text"
@@ -42,6 +44,7 @@
             placeholder="e.g. Jane Appleseed"
             autocomplete="off"
           />
+          <span class="error"></span>
         </div>
         <div class="numbers-container">
           <label for="numbers">card number</label>
@@ -50,11 +53,12 @@
             id="numbers"
             placeholder="e.g. 1234 5678 9123 000"
             autocomplete="off"
+            maxlength="19"
           />
-          <span></span>
+          <span class="error"></span>
         </div>
         <div class="flex-global">
-          <div class="date">
+          <div class="date-container">
             <label for="mounth">exp. date (mm/yy)</label>
             <div class="input-flex">
               <div class="mounth-container">
@@ -63,6 +67,7 @@
                   id="mounth"
                   placeholder="MM"
                   autocomplete="off"
+                  maxlength="2"
                 />
               </div>
               <div class="years-container">
@@ -71,19 +76,22 @@
                   id="years"
                   placeholder="YY"
                   autocomplete="off"
+                  maxlength="4"
                 />
               </div>
             </div>
-            <span></span>
+            <span class="error"></span>
           </div>
-          <div class="cvc">
+          <div class="cvc-container">
             <label for="cvco">cvc</label>
             <input
               type="text"
               id="cvco"
               placeholder="e.g. 123"
               autocomplete="off"
+              maxlength="3"
             />
+            <span class="error"></span>
           </div>
         </div>
         <input type="submit" value="Confirm" id="confirm" />
@@ -116,5 +124,6 @@
         <button>Continue</button>
       </div>
     </section>
+    <script src="./assets/javascript/script.js"></script>
   </body>
 </html>

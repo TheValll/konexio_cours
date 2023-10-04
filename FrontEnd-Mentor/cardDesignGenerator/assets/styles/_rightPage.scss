@@ -5,16 +5,20 @@
     transform: translate(-50%, -50%);
     top: 50%;
     left: 60%;
-    .name-container,
+    .error {
+      color: red;
+      font-size: 12px;
+    }
+    .surname-container,
     .numbers-container,
-    .date,
-    .cvc {
+    .date-container,
+    .cvc-container {
       display: flex;
       flex-direction: column;
     }
     label {
       text-transform: uppercase;
-      margin-top: 20px;
+      margin-top: 50px;
     }
     input {
       border-radius: 5px;
@@ -34,7 +38,7 @@
     .flex-global {
       display: grid;
       grid-template-columns: 50% 50%;
-      .date {
+      .date-container {
         .input-flex {
           display: grid;
           grid-template-columns: 50% 50%;

@@ -29,7 +29,7 @@
   top: 15%;
   left: 15%;
 }
-.left-page .cards .front-card #card-number {
+.left-page .cards .front-card #card-change {
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -38,12 +38,12 @@
   width: 100%;
   text-align: center;
 }
-.left-page .cards .front-card #name {
+.left-page .cards .front-card #name-change {
   position: absolute;
   left: 5%;
   bottom: 10%;
 }
-.left-page .cards .front-card #date {
+.left-page .cards .front-card #date-change {
   position: absolute;
   right: 5%;
   bottom: 10%;
@@ -61,7 +61,7 @@
   margin: 30px 0 0 100px;
   position: relative;
 }
-.left-page .cards .back-card #cvc {
+.left-page .cards .back-card #cvc-change {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 49%;
@@ -77,16 +77,20 @@
   top: 50%;
   left: 60%;
 }
-.right-page form .name-container,
+.right-page form .error {
+  color: red;
+  font-size: 12px;
+}
+.right-page form .surname-container,
 .right-page form .numbers-container,
-.right-page form .date,
-.right-page form .cvc {
+.right-page form .date-container,
+.right-page form .cvc-container {
   display: flex;
   flex-direction: column;
 }
 .right-page form label {
   text-transform: uppercase;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 .right-page form input {
   border-radius: 5px;
@@ -107,7 +111,7 @@
   display: grid;
   grid-template-columns: 50% 50%;
 }
-.right-page form .flex-global .date .input-flex {
+.right-page form .flex-global .date-container .input-flex {
   display: grid;
   grid-template-columns: 50% 50%;
 }
