@@ -2,6 +2,7 @@
 @import "./layouts/leftPage";
 @import "./layouts/rightPage";
 @import "./layouts/step1";
+@import "./layouts/step2";
 
 * {
   margin: 0;
@@ -9,6 +10,7 @@
   box-sizing: border-box;
 }
 body {
+  overflow-x: hidden;
   display: grid;
   place-items: center;
   min-height: 100vh;
@@ -18,5 +20,11 @@ body {
     grid-template-columns: 30% 70%;
     width: 70%;
     background-color: white;
+    border-radius: 10px;
   }
+}
+
+.activeBg {
+  background-color: hsl(206, 94%, 87%);
+  color: black;
 }

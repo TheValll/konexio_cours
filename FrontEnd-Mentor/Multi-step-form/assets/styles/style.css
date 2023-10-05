@@ -28,7 +28,6 @@
   font-size: 16px;
 }
 .left--page .left--page--container .active--step .step--number {
-  border: 2px solid white;
   border-radius: 100%;
   height: 30px;
   width: 30px;
@@ -36,6 +35,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 2px white solid;
 }
 .left--page .left--page--container .active--step .step--description {
   margin: 0 0 20px 20px;
@@ -53,38 +53,54 @@
   margin-left: 15%;
   margin-top: 40px;
   margin-bottom: 40px;
+  height: 500px;
 }
-.right--page .step1 .step1--conainer {
+.right--page .step1 .step1--container {
   width: 80%;
 }
-.right--page .step1 .step1--conainer h1 {
+.right--page .step1 .step1--container h1 {
   color: hsl(213, 96%, 18%);
   font-family: Ubuntu-Bold;
 }
-.right--page .step1 .step1--conainer p {
+.right--page .step1 .step1--container p {
   margin-top: 10px;
   font-family: Ubuntu-Regular;
   color: gray;
 }
-.right--page .step1 .step1--conainer form {
+.right--page .step1 .step1--container form {
   margin-top: 30px;
 }
-.right--page .step1 .step1--conainer form .surname--container,
-.right--page .step1 .step1--conainer form .email--container,
-.right--page .step1 .step1--conainer form .phone--container {
+.right--page .step1 .step1--container form .surname--container .error {
+  color: hsl(354, 84%, 57%);
+  font-family: Ubuntu-Regular;
+  font-size: 14px;
+}
+.right--page .step1 .step1--container form .email--container .error {
+  color: hsl(354, 84%, 57%);
+  font-family: Ubuntu-Regular;
+  font-size: 14px;
+}
+.right--page .step1 .step1--container form .phone--container .error {
+  color: hsl(354, 84%, 57%);
+  font-family: Ubuntu-Regular;
+  font-size: 14px;
+}
+.right--page .step1 .step1--container form .surname--container,
+.right--page .step1 .step1--container form .email--container,
+.right--page .step1 .step1--container form .phone--container {
   display: flex;
   flex-direction: column;
   margin-top: 30px;
 }
-.right--page .step1 .step1--conainer form .surname--container label,
-.right--page .step1 .step1--conainer form .email--container label,
-.right--page .step1 .step1--conainer form .phone--container label {
+.right--page .step1 .step1--container form .surname--container label,
+.right--page .step1 .step1--container form .email--container label,
+.right--page .step1 .step1--container form .phone--container label {
   color: hsl(213, 96%, 18%);
   font-family: Ubuntu-Regular;
 }
-.right--page .step1 .step1--conainer form .surname--container input,
-.right--page .step1 .step1--conainer form .email--container input,
-.right--page .step1 .step1--conainer form .phone--container input {
+.right--page .step1 .step1--container form .surname--container input,
+.right--page .step1 .step1--container form .email--container input,
+.right--page .step1 .step1--container form .phone--container input {
   margin-top: 10px;
   padding: 5px;
   height: 30px;
@@ -92,8 +108,114 @@
   border-radius: 5px;
   border: 1px solid gray;
 }
-.right--page .step1 .step1--conainer form #next {
+.right--page .step1 .step1--container form .btnNext--container {
+  display: flex;
+  justify-content: end;
+}
+.right--page .step1 .step1--container form .btnNext--container #next {
   margin-top: 100px;
+  padding: 10px;
+  height: 50px;
+  width: 130px;
+  border: 1px;
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  font-family: Ubuntu-Regular;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.right--page .step1 .step1--container form .btnNext--container #next:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
+}
+
+.step2 {
+  height: 500px;
+  margin-left: 15%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: none;
+}
+.step2 .step2--container {
+  width: 80%;
+}
+.step2 .step2--container h1 {
+  color: hsl(213, 96%, 18%);
+  font-family: Ubuntu-Bold;
+}
+.step2 .step2--container p {
+  margin-top: 10px;
+  font-family: Ubuntu-Regular;
+  color: gray;
+}
+.step2 .step2--container .plan--container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 100px;
+  gap: 20px;
+}
+.step2 .step2--container .plan--container .plan1,
+.step2 .step2--container .plan--container .plan2,
+.step2 .step2--container .plan--container .plan3 {
+  height: 200px;
+  display: grid;
+  place-items: center;
+  border: 1px solid purple;
+  border-radius: 10px;
+}
+.step2 .step2--container .plan--container .current {
+  background-color: hsl(206, 94%, 87%);
+}
+.step2 .step2--container .plan--container h3 {
+  color: hsl(213, 96%, 18%);
+  font-family: Ubuntu-Bold;
+}
+.step2 .step2--container .plan--container h4 {
+  margin-top: 5px;
+  font-family: Ubuntu-Regular;
+  font-size: 12px;
+  color: gray;
+}
+.step2 .step2--container .btn--container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.step2 .step2--container .btn--container #gobackS2 {
+  border: none;
+  color: gray;
+  font-family: Ubuntu-Regular;
+  letter-spacing: 1px;
+  padding: 10px;
+  height: 50px;
+  width: 130px;
+  border-radius: 5px;
+  background-color: transparent;
+  transition: 0.3s ease;
+}
+.step2 .step2--container .btn--container #gobackS2:hover {
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  border: 1px solid black;
+}
+.step2 .step2--container .btn--container #nextS2 {
+  padding: 10px;
+  height: 50px;
+  width: 130px;
+  border: 1px;
+  background-color: hsl(213, 96%, 18%);
+  color: white;
+  font-family: Ubuntu-Regular;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: 0.3s ease;
+}
+.step2 .step2--container .btn--container #nextS2:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: white;
 }
 
 * {
@@ -103,6 +225,7 @@
 }
 
 body {
+  overflow-x: hidden;
   display: grid;
   place-items: center;
   min-height: 100vh;
@@ -113,4 +236,10 @@ body .page--container {
   grid-template-columns: 30% 70%;
   width: 70%;
   background-color: white;
+  border-radius: 10px;
+}
+
+.activeBg {
+  background-color: hsl(206, 94%, 87%);
+  color: black;
 }/*# sourceMappingURL=style.css.map */

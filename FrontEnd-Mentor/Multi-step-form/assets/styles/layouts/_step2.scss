@@ -1,0 +1,86 @@
+.step2 {
+  height: 500px;
+  margin-left: 15%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: none;
+  .step2--container {
+    width: 80%;
+    h1 {
+      color: hsl(213, 96%, 18%);
+      font-family: Ubuntu-Bold;
+    }
+    p {
+      margin-top: 10px;
+      font-family: Ubuntu-Regular;
+      color: gray;
+    }
+    .plan--container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 100px;
+      gap: 20px;
+      .plan1,
+      .plan2,
+      .plan3 {
+        height: 200px;
+        display: grid;
+        place-items: center;
+        border: 1px solid purple;
+        border-radius: 10px;
+      }
+      .current {
+        background-color: hsl(206, 94%, 87%);
+      }
+      h3 {
+        color: hsl(213, 96%, 18%);
+        font-family: Ubuntu-Bold;
+      }
+      h4 {
+        margin-top: 5px;
+        font-family: Ubuntu-Regular;
+        font-size: 12px;
+        color: gray;
+      }
+    }
+    .btn--container {
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      #gobackS2 {
+        border: none;
+        color: gray;
+        font-family: Ubuntu-Regular;
+        letter-spacing: 1px;
+        padding: 10px;
+        height: 50px;
+        width: 130px;
+        border-radius: 5px;
+        background-color: transparent;
+        transition: 0.3s ease;
+        &:hover {
+          background-color: hsl(213, 96%, 18%);
+          color: white;
+          border: 1px solid black;
+        }
+      }
+      #nextS2 {
+        padding: 10px;
+        height: 50px;
+        width: 130px;
+        border: 1px;
+        background-color: hsl(213, 96%, 18%);
+        color: white;
+        font-family: Ubuntu-Regular;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        transition: 0.3s ease;
+        &:hover {
+          border: 1px solid black;
+          color: black;
+          background-color: white;
+        }
+      }
+    }
+  }
+}
