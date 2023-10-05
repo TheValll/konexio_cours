@@ -13,8 +13,8 @@
   text-transform: uppercase;
 }
 .left-page .cards .card {
-  height: 270px;
-  width: 500px;
+  height: 230px;
+  width: 400px;
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   color: white;
@@ -68,6 +68,39 @@
   left: 84%;
 }
 
+@media screen and (max-width: 1000px) {
+  .left-page {
+    min-height: 33vh;
+  }
+  .left-page .cards {
+    top: 80%;
+    left: 50%;
+  }
+  .left-page .cards .card {
+    height: 150px;
+    width: 250px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    color: white;
+  }
+  .left-page .cards .front-card #front-logo {
+    top: 20%;
+    left: 20%;
+  }
+  .left-page .cards .front-card #card-change {
+    font-size: 18px;
+  }
+  .left-page .cards .front-card #name-change {
+    font-size: 9px;
+  }
+  .left-page .cards .front-card #date-change {
+    font-size: 9px;
+  }
+  .left-page .cards .back-card {
+    margin: -230px 0 0 70px;
+    z-index: -1;
+  }
+}
 .right-page {
   position: relative;
 }
@@ -109,7 +142,7 @@
 }
 .right-page form .flex-global {
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 60% 40%;
 }
 .right-page form .flex-global .date-container .input-flex {
   display: grid;
@@ -134,11 +167,26 @@
   display: none;
 }
 
+@media screen and (max-width: 1000px) {
+  .right-page form {
+    top: 300%;
+    left: 50%;
+  }
+  .right-page form label {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .right-page form input {
+    height: 50px;
+    margin-top: 5px;
+    font-size: 12px;
+  }
+}
 .thanks {
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
-  left: 50%;
+  left: 70%;
   text-align: center;
 }
 .thanks h2 {
@@ -174,6 +222,12 @@
   display: none;
 }
 
+@media screen and (max-width: 1000px) {
+  .thanks {
+    top: 300%;
+    left: 50%;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -185,4 +239,11 @@ body {
   grid-template-columns: 33% 66%;
   font-family: "Space Grotesk", sans-serif;
   font-size: 18px;
+}
+
+@media screen and (max-width: 1000px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+  }
 }/*# sourceMappingURL=style.css.map */

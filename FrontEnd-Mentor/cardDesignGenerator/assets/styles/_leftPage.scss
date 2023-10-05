@@ -10,8 +10,8 @@
     top: 50%;
     text-transform: uppercase;
     .card {
-      height: 270px;
-      width: 500px;
+      height: 230px;
+      width: 400px;
       border-radius: 10px;
       box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
       color: white;
@@ -62,6 +62,41 @@
         transform: translate(-50%, -50%);
         top: 49%;
         left: 84%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .left-page {
+    min-height: 33vh;
+    .cards {
+      top: 80%;
+      left: 50%;
+      .card {
+        height: 150px;
+        width: 250px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        color: white;
+      }
+      .front-card {
+        #front-logo {
+          top: 20%;
+          left: 20%;
+        }
+        #card-change {
+          font-size: 18px;
+        }
+        #name-change {
+          font-size: 9px;
+        }
+        #date-change {
+          font-size: 9px;
+        }
+      }
+      .back-card {
+        margin: -230px 0 0 70px;
+        z-index: -1;
       }
     }
   }

@@ -37,7 +37,7 @@
     }
     .flex-global {
       display: grid;
-      grid-template-columns: 50% 50%;
+      grid-template-columns: 60% 40%;
       .date-container {
         .input-flex {
           display: grid;
@@ -63,4 +63,21 @@
 }
 .formHidden {
   display: none;
+}
+@media screen and (max-width: 1000px) {
+  .right-page {
+    form {
+      top: 300%;
+      left: 50%;
+      label {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+      input {
+        height: 50px;
+        margin-top: 5px;
+        font-size: 12px;
+      }
+    }
+  }
 }
