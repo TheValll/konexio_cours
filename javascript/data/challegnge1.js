@@ -44,9 +44,9 @@ const printGoals = ([...playersName]) => {
 printGoals(team1Players);
 
 const displayWinner = () => {
-  team1 > (team2 || draw) &&
+  team1 < (team2 || draw) &&
     console.log("La team 1 a plus de chance de gagner");
-  team2 > (team1 || draw) &&
+  team2 < (team1 || draw) &&
     console.log("La team 2 a plus de chance de gagner");
   draw > (team1 || team2) &&
     console.log("La team 2 et la team 1 ont la meme chance de gagner");
