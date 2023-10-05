@@ -140,4 +140,8 @@ form.addEventListener("submit", (e) => {
 continueBtn.addEventListener("click", () => {
   form.classList.remove("formHidden");
   thanks.classList.add("thanksHidden");
+  document.getElementById("card-change").textContent = "0000 0000 0000 0000";
+  document.getElementById("name-change").textContent = "jane appleseed";
+  document.getElementById("date-change").textContent = "00/20";
+  document.getElementById("cvc-change").textContent = "000";
 });
