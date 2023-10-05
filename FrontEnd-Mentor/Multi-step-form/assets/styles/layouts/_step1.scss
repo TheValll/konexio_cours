@@ -1,0 +1,44 @@
+.right--page {
+  .step1 {
+    margin-left: 15%;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    .step1--conainer {
+      width: 80%;
+      h1 {
+        color: hsl(213, 96%, 18%);
+        font-family: Ubuntu-Bold;
+      }
+      p {
+        margin-top: 10px;
+        font-family: Ubuntu-Regular;
+        color: gray;
+      }
+      form {
+        margin-top: 30px;
+        .surname--container,
+        .email--container,
+        .phone--container {
+          display: flex;
+          flex-direction: column;
+          margin-top: 30px;
+          label {
+            color: hsl(213, 96%, 18%);
+            font-family: Ubuntu-Regular;
+          }
+          input {
+            margin-top: 10px;
+            padding: 5px;
+            height: 30px;
+            font-family: Ubuntu-Regular;
+            border-radius: 5px;
+            border: 1px solid gray;
+          }
+        }
+        #next {
+          margin-top: 100px;
+        }
+      }
+    }
+  }
+}

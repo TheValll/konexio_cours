@@ -1,0 +1,116 @@
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url(../fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+  font-family: Ubuntu-Medium;
+  src: url(../fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url(../fonts/Ubuntu-Regular.ttf);
+}
+.left--page {
+  background: url(../images/bg-sidebar-desktop.svg) center/cover;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 90%;
+}
+.left--page .left--page--container {
+  padding: 10px;
+}
+.left--page .left--page--container .active--step {
+  display: flex;
+  font-family: Ubuntu-Bold;
+  text-transform: uppercase;
+  color: white;
+  font-size: 16px;
+}
+.left--page .left--page--container .active--step .step--number {
+  border: 2px solid white;
+  border-radius: 100%;
+  height: 30px;
+  width: 30px;
+  font-family: Ubuntu-Regular;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left--page .left--page--container .active--step .step--description {
+  margin: 0 0 20px 20px;
+}
+.left--page .left--page--container .active--step .step--description h3 {
+  margin-top: 5px;
+  font-size: 14px;
+}
+.left--page .left--page--container .active--step .step--description p {
+  font-family: Ubuntu-Regular;
+  color: rgb(245, 245, 245);
+}
+
+.right--page .step1 {
+  margin-left: 15%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.right--page .step1 .step1--conainer {
+  width: 80%;
+}
+.right--page .step1 .step1--conainer h1 {
+  color: hsl(213, 96%, 18%);
+  font-family: Ubuntu-Bold;
+}
+.right--page .step1 .step1--conainer p {
+  margin-top: 10px;
+  font-family: Ubuntu-Regular;
+  color: gray;
+}
+.right--page .step1 .step1--conainer form {
+  margin-top: 30px;
+}
+.right--page .step1 .step1--conainer form .surname--container,
+.right--page .step1 .step1--conainer form .email--container,
+.right--page .step1 .step1--conainer form .phone--container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+.right--page .step1 .step1--conainer form .surname--container label,
+.right--page .step1 .step1--conainer form .email--container label,
+.right--page .step1 .step1--conainer form .phone--container label {
+  color: hsl(213, 96%, 18%);
+  font-family: Ubuntu-Regular;
+}
+.right--page .step1 .step1--conainer form .surname--container input,
+.right--page .step1 .step1--conainer form .email--container input,
+.right--page .step1 .step1--conainer form .phone--container input {
+  margin-top: 10px;
+  padding: 5px;
+  height: 30px;
+  font-family: Ubuntu-Regular;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.right--page .step1 .step1--conainer form #next {
+  margin-top: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: whitesmoke;
+}
+body .page--container {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  width: 70%;
+  background-color: white;
+}/*# sourceMappingURL=style.css.map */

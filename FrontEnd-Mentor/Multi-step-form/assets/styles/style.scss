@@ -1,0 +1,22 @@
+@import "./settings";
+@import "./layouts/leftPage";
+@import "./layouts/rightPage";
+@import "./layouts/step1";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background-color: whitesmoke;
+  .page--container {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    width: 70%;
+    background-color: white;
+  }
+}

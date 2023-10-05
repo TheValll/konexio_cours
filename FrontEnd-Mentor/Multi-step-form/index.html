@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <title>Multi Steps Form</title>
+  </head>
+  <body>
+    <div class="page--container">
+      <div class="left--page">
+        <div class="left--page--container">
+          <div class="active--step" id="1">
+            <p class="step--number">1</p>
+            <div class="step--description">
+              <p>step 1</p>
+              <h3>your infos</h3>
+            </div>
+          </div>
+          <div class="active--step" id="2">
+            <p class="step--number">2</p>
+            <div class="step--description">
+              <p>step 2</p>
+              <h3>select plan</h3>
+            </div>
+          </div>
+          <div class="active--step" id="3">
+            <p class="step--number">3</p>
+            <div class="step--description">
+              <p>step 3</p>
+              <h3>add-ons</h3>
+            </div>
+          </div>
+          <div class="active--step" id="4">
+            <p class="step--number">4</p>
+            <div class="step--description">
+              <p>step 4</p>
+              <h3>summary</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right--page">
+        <section class="step1">
+          <div class="step1--conainer">
+            <h1>Personal info</h1>
+            <p>Please provide your name, email address, and phone number.</p>
+            <form action="">
+              <div class="surname--container">
+                <label for="surname">Name</label>
+                <input
+                  type="text"
+                  id="surname"
+                  placeholder="e.g. Stephen King"
+                  autocomplete="off"
+                />
+                <span></span>
+              </div>
+              <div class="email--container">
+                <label for="email">Email Address</label>
+                <input
+                  type="text"
+                  id="email"
+                  placeholder="e.g. stephenking@lorem.com"
+                  autocomplete="off"
+                />
+                <span></span>
+              </div>
+              <div class="phone--container">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="text"
+                  id="phone"
+                  placeholder="e.g. +1 234 567 890"
+                  autocomplete="off"
+                />
+                <span></span>
+              </div>
+              <input type="submit" id="next" value="Next Step" />
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
