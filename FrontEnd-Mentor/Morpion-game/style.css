@@ -48,11 +48,5 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
-}
-.player1win {
-  color: red;
-}
-.player2win {
-  color: blue;
+  font-size: 42px;
 }
