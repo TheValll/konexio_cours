@@ -50,3 +50,22 @@ body {
   align-items: center;
   font-size: 42px;
 }
+.scores {
+  margin-top: 30px;
+  text-align: center;
+}
+.scores span {
+  margin: 0 10px 0 10px;
+}
+#gameReset {
+  margin-top: 20px;
+  padding: 5px;
+  height: 40px;
+  width: 200px;
+  background-color: white;
+  font-family: "Dela Gothic One", cursive;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}

@@ -1,9 +1,13 @@
 const cells = document.querySelectorAll("[data-cells]");
 const text = document.getElementById("gameText");
 const reload = document.getElementById("reload");
-const playerOne = "X";
-const playerTwo = "O";
+let scoresOne = document.getElementById("X");
+let scoresTwo = document.getElementById("O");
+let playerOne = "X";
+let playerTwo = "O";
 let activePlayer;
+
+let scores = [0, 0];
 
 const winnerConditions = [
   [0, 1, 2],
@@ -43,16 +47,21 @@ const gameLogic = (e) => {
     cells.forEach((cell) => {
       cell.removeEventListener("click", gameLogic, { once: true });
     });
+
     if (activePlayer === "X") {
       document.body.style.backgroundColor = "green";
       cells.forEach((cell) => {
         cell.style.color = "white";
       });
+      scores[0]++;
+      scoresOne.textContent = scores[0];
     } else if (activePlayer === "O") {
       document.body.style.backgroundColor = "red";
       cells.forEach((cell) => {
         cell.style.color = "white";
       });
+      scores[1]++;
+      scoresTwo.textContent = scores[1];
     }
   } else {
     activePlayer = activePlayer === playerOne ? playerTwo : playerOne;
@@ -77,6 +86,28 @@ const init = () => {
 
 init();
 
+const changeTurn = () => {
+  activePlayer =
+    activePlayer === playerOne
+      ? (activePlayer = playerTwo)
+      : (activePlayer = playerOne);
+  text.textContent = `Au tour du joueur ${activePlayer} !`;
+  cells.forEach((cell) => {
+    cell.innerHTML = "";
+  });
+  cells.forEach((cell) => {
+    cell.removeEventListener("click", gameLogic, { once: true });
+  });
+  cells.forEach((cell) => {
+    cell.addEventListener("click", gameLogic, { once: true });
+  });
+  document.body.style.backgroundColor = "rgb(40, 44, 52)";
+};
+
 const restart = () => {
-  init();
+  changeTurn();
+};
+
+const gameReset = () => {
+  location.reload();
 };
