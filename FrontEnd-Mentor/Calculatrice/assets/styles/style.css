@@ -1,36 +1,70 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  background-color: black;
-  display: flex;
-  justify-content: center;
-}
-body .calculator {
+.container {
+  background-color: #3b4664;
   min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-body .calculator form {
-  display: flex;
-  flex-direction: column;
+.calculator {
+  padding: 10px;
+  background-color: #252d44;
+  border-radius: 10px;
 }
-body .calculator form #display {
-  width: 100%;
-  text-align: right;
-}
-body .calculator form input {
-  height: 100px;
-  width: 100px;
-  outline: none;
+.container input {
   font-family: "League Spartan", sans-serif;
-  font-size: 32px;
+  height: 60px;
+  width: 100px;
+  margin: 10px;
+  outline: none;
+  font-size: 24px;
+  border: none;
+  background-color: #eae3db;
+  color: #444c5e;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
-body .calculator form .container input {
-  margin: 5px;
-}/*# sourceMappingURL=style.css.map */
+.display {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+.display input {
+  text-align: right;
+  flex: 1;
+  font-size: 45px;
+  background-color: #181f32;
+  color: white;
+  height: 100px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+#reset {
+  width: 225px;
+  color: white;
+  background-color: #a2b3e1;
+}
+#delete {
+  color: white;
+  background-color: #a2b3e1;
+}
+#result {
+  width: 225px;
+  color: white;
+  background-color: #f96c5b;
+  box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
