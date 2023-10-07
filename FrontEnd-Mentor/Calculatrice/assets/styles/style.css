@@ -1,1 +1,36 @@
-/*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+body .calculator {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .calculator form {
+  display: flex;
+  flex-direction: column;
+}
+body .calculator form #display {
+  width: 100%;
+  text-align: right;
+}
+body .calculator form input {
+  height: 100px;
+  width: 100px;
+  outline: none;
+  font-family: "League Spartan", sans-serif;
+  font-size: 32px;
+}
+body .calculator form .container input {
+  margin: 5px;
+}/*# sourceMappingURL=style.css.map */

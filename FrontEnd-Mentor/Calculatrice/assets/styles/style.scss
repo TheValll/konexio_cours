@@ -1,0 +1,36 @@
+@import "./settings";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  .calculator {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    form {
+      display: flex;
+      flex-direction: column;
+      #display {
+        width: 100%;
+        text-align: right;
+      }
+      input {
+        height: 100px;
+        width: 100px;
+        outline: none;
+        font-family: "League Spartan", sans-serif;
+        font-size: 32px;
+      }
+      .container input {
+        margin: 5px;
+      }
+    }
+  }
+}
