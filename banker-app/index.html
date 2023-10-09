@@ -8,16 +8,116 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
   </head>
   <body>
     <header>
-      <h2>Log in to get started</h2>
-      <img src="./assets/img/logo.png" alt="logo du site banker app" />
+      <h2 id="welcome--text">Log in to get started</h2>
+      <img
+        src="./assets/img/logo.png"
+        alt="logo du site banker app"
+        height="50px"
+      />
       <form>
-        <input type="text" placeholder="user" />
-        <input type="password" placeholder="PIN" />
-        <i class="fa-solid fa-arrow-right"></i>
+        <input
+          type="text"
+          placeholder="user"
+          id="user--input"
+          maxlength="2"
+          autocomplete="off"
+        />
+        <input
+          type="password"
+          placeholder="PIN"
+          id="pin--input"
+          maxlength="4"
+          autocomplete="off"
+        />
+        <i class="fa-solid fa-arrow-right" id="submit--input"></i>
       </form>
     </header>
+    <div class="after--login">
+      <div class="after--header">
+        <div class="balance">
+          <h2>Current balance</h2>
+          <p id="date">As of</p>
+        </div>
+        <h2 id="balance--value">25 952,59 €</h2>
+      </div>
+      <div class="grid--container">
+        <div class="grid--left">
+          <div class="history"></div>
+          <div class="summary">
+            <p>
+              in <span id="balance--smumary">27 035,20€</span>out
+              <span>1082,61€</span>
+              <i class="fa-solid fa-arrow-down" id="arrow--sort"></i> sort
+            </p>
+          </div>
+        </div>
+        <div class="grid--left">
+          <div class="transfer">
+            <h3>TRransfer money</h3>
+            <form id="form--transfert">
+              <div class="transfer-to">
+                <input type="text" autocomplete="off" id="to" />
+                <label for="to">Transfert to</label>
+              </div>
+              <div class="amount">
+                <input type="number" autocomplete="off" id="amount" />
+                <label for="amount">Amount to</label>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                id="submit--input--transfer"
+              ></i>
+            </form>
+          </div>
+          <div class="request">
+            <h3>Request</h3>
+            <form id="form--requesr">
+              <div class="request-input">
+                <input type="number" autocomplete="off" id="to" />
+                <label for="to">Request</label>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                id="submit--input--request"
+              ></i>
+            </form>
+          </div>
+          <div class="close">
+            <h3>Close account</h3>
+            <form id="form--close">
+              <div class="user--confirm">
+                <input
+                  type="text"
+                  autocomplete="off"
+                  id="to"
+                  maxlength="4"
+                  autocomplete="off"
+                />
+                <label for="to">Confirm user</label>
+              </div>
+              <div class="pin--confirm">
+                <input
+                  type="number"
+                  autocomplete="off"
+                  id="amount"
+                  maxlength="2"
+                  autocomplete="off"
+                />
+                <label for="amount">Confirm PIN </label>
+              </div>
+              <i
+                class="fa-solid fa-arrow-right"
+                id="submit--input--transfer"
+              ></i>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/javascript/script.js"></script>
   </body>
 </html>
