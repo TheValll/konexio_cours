@@ -107,3 +107,5 @@ rest
 
 const time = 21;
 // console.log(rest.get(time > rest.get("open") && time < rest.get("closed")));
+
+// Working with Strings
