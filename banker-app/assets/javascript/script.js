@@ -123,7 +123,7 @@ document.querySelector(".form__input--pin").addEventListener("input", (e) => {
 });
 
 document.querySelector(".form__btn--close").addEventListener("click", (e) => {
-  e.preventDefault;
+  e.preventDefault();
   checkLogout();
 });
 
@@ -137,7 +137,7 @@ document
   });
 
 document.querySelector(".form__btn--loan").addEventListener("click", (e) => {
-  e.preventDefault;
+  e.preventDefault();
   if (addMoney > 0 && addMoney <= currentBalance) {
     //// AJOUTER UN INNER HTML
     console.log("add money");
