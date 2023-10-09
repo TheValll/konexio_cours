@@ -36,6 +36,19 @@ const checkLogin = () => {
   }
 };
 
+//// CREATE LOGOUT FUNCTION
+
+const checkLogout = () => {
+  for (let i = 0; i < data.length; i++) {
+    if (userConfirm === data[i].user && Number(pinConfirm) === data[i].pin) {
+      afterLogin.style.opacity = "0";
+      welcomeText.textContent = "Log in to get started";
+      document.querySelector(".form__input--user").value = "";
+      document.querySelector(".form__input--pin").value = "";
+    }
+  }
+};
+
 //// ADD EVENT FOR INPUT USER AND PIN
 
 document.querySelector(".login__input--user").addEventListener("input", (e) => {
@@ -53,9 +66,11 @@ document.querySelector(".login__btn").addEventListener("click", (e) => {
   checkLogin();
 });
 
-//// CALCUL GLOBAL CURRENT BALANCE
+//// CALCUL GLOBAL CURRENT BALANCE AND POS AND NEG VALUES SET UP
 
-const history = [];
+let history = [];
+let posValue = [];
+let negValue = [];
 let currentBalance = document.querySelector(".balance__value");
 const value = document.querySelectorAll(".movements__value");
 value.forEach((e) => {
@@ -64,15 +79,30 @@ value.forEach((e) => {
 let newTable = [];
 for (let i = 0; i < history.length; i++) {
   newTable += history[i].replace(/\s/g, "").slice(0, -1);
+  if (history[i].replace(/\s/g, "").slice(0, -1) > 0) {
+    posValue.push(history[i].replace(/\s/g, "").slice(0, -1));
+  } else {
+    negValue.push(history[i].replace(/\s/g, "").slice(0, -1));
+  }
 }
-currentBalance.textContent = `${eval(newTable)} E`;
+
+currentBalance.textContent = `${eval(newTable)} €`;
+currentBalance = eval(newTable);
+
+// ADD VALUE FOR POS AND NEG CONTENT
+
+document.querySelector(".summary__value--in").textContent = `${eval(
+  posValue.join()
+)} €`;
+
+document.querySelector(".summary__value--out").textContent = `${eval(
+  negValue.join()
+)} €`;
 
 //// CHANGE DATE LOG
 
 const currentDate = new Date();
-console.log(currentDate);
 const day = currentDate.getDate();
-console.log(day);
 const mounth = currentDate.getMonth() + 1;
 const years = currentDate.getFullYear();
 if (mounth < 10) {
@@ -80,3 +110,40 @@ if (mounth < 10) {
 }
 let dateFormat = mounth + "/" + day + "/" + years;
 document.querySelector(".date").textContent = dateFormat;
+
+// CLOSE ACCOUNT
+
+let userConfirm = "";
+document.querySelector(".form__input--user").addEventListener("input", (e) => {
+  userConfirm = e.target.value;
+});
+let pinConfirm = "";
+document.querySelector(".form__input--pin").addEventListener("input", (e) => {
+  pinConfirm = e.target.value;
+});
+
+document.querySelector(".form__btn--close").addEventListener("click", (e) => {
+  e.preventDefault;
+  checkLogout();
+});
+
+// ADD MONEY
+
+let addMoney = 0;
+document
+  .querySelector(".form__input--loan-amount")
+  .addEventListener("input", (e) => {
+    addMoney = e.target.value;
+  });
+
+document.querySelector(".form__btn--loan").addEventListener("click", (e) => {
+  e.preventDefault;
+  if (addMoney > 0 && addMoney <= currentBalance) {
+    //// AJOUTER UN INNER HTML
+    console.log("add money");
+  } else {
+    alert(
+      "Please add number betwwen 0 and less or equal at your current balance"
+    );
+  }
+});
