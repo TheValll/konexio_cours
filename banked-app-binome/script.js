@@ -38,6 +38,12 @@ const accounts = [
     interestRate: 1,
     pin: 5555,
   },
+  {
+    owner: "Aurelie De Maintenant Isabelle Non",
+    movements: [438, -1000, 727, 500, 93],
+    interestRate: 1,
+    pin: 6666,
+  },
 ];
 
 // Elements
@@ -66,18 +72,14 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+window.addEventListener("unload", (e) => {
+  e.preventDefault();
+  return false;
+});
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
-
-const currencies = new Map([
-  ["USD", "United States dollar"],
-  ["EUR", "Euro"],
-  ["GBP", "Pound sterling"],
-]);
-
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
 /////////////////////////////////////////////////
 
 let loginInput = "";
@@ -109,6 +111,8 @@ inputLoginPin.addEventListener("input", (e) => {
 
 // ADD LOGIN CONDITIONS
 
+let currentAccount = "";
+
 btnLogin.addEventListener("click", (e) => {
   e.preventDefault();
   for (let i = 0; i < accounts.length; i++) {
@@ -121,6 +125,13 @@ btnLogin.addEventListener("click", (e) => {
       labelWelcome.textContent = `Welome back ${accounts[i].owner} !`;
       inputLoginUsername.value = "";
       inputLoginPin.value = "";
+      currentAccount = accounts[i];
+      displayBalance(currentAccount);
+      displayInOut(currentAccount);
+      displayInterest(currentAccount);
+      request = 0;
+      receiver = "";
+      transferCount = 0;
     }
   }
 });
@@ -150,8 +161,115 @@ const currentDate = new Date();
 const day = currentDate.getDate();
 const mounth = currentDate.getMonth() + 1;
 const years = currentDate.getFullYear();
+const hours = currentDate.getHours();
+const minutes = currentDate.getMinutes();
 if (mounth < 10) {
   mounth = "0" + mounth;
 }
 let dateFormat = mounth + "/" + day + "/" + years;
 labelDate.textContent = dateFormat;
+let dateMovFormat =
+  mounth + "/" + day + "/" + years + " AT " + hours + " h " + minutes;
+
+// CHANGE CURRENT BALANCE
+
+let balanceValue = 0;
+const displayBalance = (acc) => {
+  for (let i = 0; i < acc.movements.length; i++) {
+    balanceValue += acc.movements[i];
+  }
+  labelBalance.textContent = `${balanceValue} €`;
+};
+
+// CHANGE IN AND OUT LABEL
+
+let inValue = 0;
+let outValue = 0;
+const displayInOut = (value) => {
+  for (let i = 0; i < value.movements.length; i++) {
+    if (value.movements[i] > 0) {
+      inValue += value.movements[i];
+    } else if (value.movements[i] < 0) {
+      outValue += value.movements[i];
+    }
+    labelSumIn.textContent = `${inValue}€`;
+    labelSumOut.textContent = `${outValue}€`;
+  }
+};
+
+const displayInterest = (account) => {
+  let interestValue = 0;
+  interestValue = (inValue * account.interestRate) / 100;
+  labelSumInterest.textContent = `${interestValue}€`;
+};
+
+// TRANSFERT MONEY
+
+let receiver = "";
+inputTransferTo.addEventListener("input", (e) => {
+  receiver = e.target.value;
+});
+
+let transferCount = 0;
+inputTransferAmount.addEventListener("input", (e) => {
+  transferCount = e.target.value;
+});
+
+btnTransfer.addEventListener("click", (e) => {
+  e.preventDefault();
+  const transferInitials = receiver.toLowerCase();
+
+  let receiverAccount = null;
+  for (let i = 0; i < accounts.length; i++) {
+    if (transferInitials === initialesGenerator(accounts[i].owner)) {
+      receiverAccount = accounts[i];
+      break;
+    }
+  }
+
+  if (receiverAccount && Number(transferCount) <= balanceValue) {
+    receiverAccount.movements.push(Number(transferCount));
+    balanceValue -= Number(transferCount);
+    labelBalance.textContent = `${balanceValue}€`;
+    setTimeout(() => {
+      displayMovementsLine("withdrawal", transferCount);
+    }, "3000");
+    inputTransferTo.value = "";
+    inputTransferAmount.value = "";
+  } else {
+    alert("erreur");
+  }
+});
+
+// REQUEST LOAN
+
+let request = 0;
+inputLoanAmount.addEventListener("input", (e) => {
+  request = e.target.value;
+});
+
+btnLoan.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (Math.max(...currentAccount.movements) >= (request * 10) / 100) {
+    setTimeout(() => {
+      displayMovementsLine("deposit", request);
+    }, "3000");
+  } else {
+    alert("Your request need to be > than 10% of your recents deposit");
+  }
+  return false;
+});
+
+const displayMovementsLine = (type, request) => {
+  const html = `
+    <div class="movements__row">
+      <div class="movements__type movements__type--${type}">${
+    containerMovements.childElementCount + 1
+  }${type}</div>
+      <div class="movements__date">${dateMovFormat}</div>
+      <div class="movements__value">${request}€</div>
+    </div>
+  `;
+
+  containerMovements.insertAdjacentHTML("afterbegin", html);
+};
