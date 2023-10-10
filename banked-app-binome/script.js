@@ -126,12 +126,18 @@ btnLogin.addEventListener("click", (e) => {
       inputLoginUsername.value = "";
       inputLoginPin.value = "";
       currentAccount = accounts[i];
-      displayBalance(currentAccount);
-      displayInOut(currentAccount);
-      displayInterest(currentAccount);
+      balanceValue = 0;
       request = 0;
       receiver = "";
       transferCount = 0;
+      loginInput = "";
+      pinInput = "";
+      inValue = 0;
+      outValue = 0;
+      displayBalance(currentAccount);
+      displayInOut(currentAccount);
+      displayInterest(currentAccount);
+      timerFiveMin();
     }
   }
 });
@@ -177,8 +183,8 @@ let balanceValue = 0;
 const displayBalance = (acc) => {
   for (let i = 0; i < acc.movements.length; i++) {
     balanceValue += acc.movements[i];
+    labelBalance.textContent = `${balanceValue} €`;
   }
-  labelBalance.textContent = `${balanceValue} €`;
 };
 
 // CHANGE IN AND OUT LABEL
@@ -186,6 +192,8 @@ const displayBalance = (acc) => {
 let inValue = 0;
 let outValue = 0;
 const displayInOut = (value) => {
+  inValue = 0;
+  outValue = 0;
   for (let i = 0; i < value.movements.length; i++) {
     if (value.movements[i] > 0) {
       inValue += value.movements[i];
@@ -230,14 +238,18 @@ btnTransfer.addEventListener("click", (e) => {
   if (receiverAccount && Number(transferCount) <= balanceValue) {
     receiverAccount.movements.push(Number(transferCount));
     balanceValue -= Number(transferCount);
-    labelBalance.textContent = `${balanceValue}€`;
+    currentAccount.movements.push(Number(transferCount * -1));
     setTimeout(() => {
-      displayMovementsLine("withdrawal", transferCount);
-    }, "3000");
+      displayMovementsLine("withdrawal", Number(transferCount * -1));
+      labelBalance.textContent = `${balanceValue}€`;
+      displayInOut(currentAccount);
+    }, 3000);
     inputTransferTo.value = "";
     inputTransferAmount.value = "";
   } else {
-    alert("erreur");
+    alert(
+      "User of the receiver need to be correct and you need have the necessary money !"
+    );
   }
 });
 
@@ -250,10 +262,19 @@ inputLoanAmount.addEventListener("input", (e) => {
 
 btnLoan.addEventListener("click", (e) => {
   e.preventDefault();
-  if (Math.max(...currentAccount.movements) >= (request * 10) / 100) {
+  if (
+    Math.max(...currentAccount.movements) >= (request * 10) / 100 &&
+    request > 0
+  ) {
+    inputLoanAmount.value = "";
+    balanceValue += Number(request);
+    currentAccount.movements.push(Number(request));
     setTimeout(() => {
       displayMovementsLine("deposit", request);
-    }, "3000");
+      labelBalance.textContent = `${balanceValue}€`;
+      displayInOut(currentAccount);
+      displayInterest(currentAccount);
+    }, 3000);
   } else {
     alert("Your request need to be > than 10% of your recents deposit");
   }
@@ -272,4 +293,71 @@ const displayMovementsLine = (type, request) => {
   `;
 
   containerMovements.insertAdjacentHTML("afterbegin", html);
+};
+
+// CLOSE ACCOUNT
+
+let userClose = "";
+inputCloseUsername.addEventListener("input", (e) => {
+  userClose = e.target.value;
+});
+
+let pinClose = "";
+inputClosePin.addEventListener("input", (e) => {
+  pinClose = e.target.value;
+});
+
+btnClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    userClose === initialesGenerator(currentAccount.owner) &&
+    Number(pinClose) === currentAccount.pin
+  ) {
+    const valueToRemove = currentAccount;
+    const indexToRemove = accounts.indexOf(valueToRemove);
+    accounts.splice(indexToRemove, 1);
+    containerApp.style.opacity = "0";
+    labelWelcome.textContent = "Log in to get started";
+    userClose = 0;
+    inputCloseUsername.value = "";
+    pinClose = 0;
+    inputClosePin.value = "";
+  } else {
+    alert("User and Pin need to be correct !");
+  }
+});
+
+// CREATE SORT FUNCTION
+
+btnSort.addEventListener("click", (e) => {
+  if (e.target.innerHTML === "↓ SORT") {
+    btnSort.innerHTML = "↑ SORT";
+    const sortMovements = [];
+    sortMovements.push(...currentAccount.movements);
+    sortMovements.sort((a, b) => a - b);
+    displayMovements(sortMovements);
+  } else if (e.target.innerHTML === "↑ SORT") {
+    btnSort.innerHTML = "↓ SORT";
+    displayMovements(currentAccount.movements);
+  }
+});
+
+// TIMER LOGOUT
+
+const timerFiveMin = () => {
+  let remainingTime = 5 * 60;
+
+  const countdownInterval = setInterval(() => {
+    remainingTime--;
+
+    const minutes = Math.floor(remainingTime / 60);
+    const seconds = remainingTime % 60;
+
+    labelTimer.innerHTML = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+    if (remainingTime <= 0) {
+      clearInterval(countdownInterval);
+      location.reload();
+    }
+  }, 1000);
 };
