@@ -15,57 +15,31 @@ const success = async (pos) => {
 
   document.body.innerHTML = `
     <div class="card">
-    <div class="card--container">
-      <div class="crucial--infos">
-        <i class="fa-solid fa-location-dot"></i>
-        <p id="location">${data2.location.name}, ${data2.location.country}</p>
-        <p id="date">${data2.location.localtime}</p>
-        <img
-          id="icon"
-          src="${data2.current.condition.icon}"
-          alt="image de la meteo"
-          height="200px"
-        />
-        <p id="temp">${data2.current.temp_c}°</p>
-        <p id="condition">${data2.current.condition.text}</p>
-      </div>
-      <div class="secondary--infos">
-        <div class="secondary--infos--container">
-          <div class="humidity--content">
-            <img
-              id="iconSmall"
-              src="./icon.png"
-              alt="image de l'humitide"
-              height="50px"
-            />
-            <p class="infos">Humidity</p>
-            <p class="value">${data2.current.humidity} %</p>
-          </div>
-          <div class="precipitation--content">
-            <img
-              id="iconSmall"
-              src="./icon.png"
-              alt="image des precipitations"
-              height="50px"
-            />
-            <p class="infos">Precipitation</p>
-            <p class="value">${data2.current.precip_in} %</p>
-          </div>
-          <div class="windy--content">
-            <img
-              id="iconSmall"
-              src="./icon.png"
-              alt="image de windy"
-              height="50px"
-            />
-            <p class="infos">Windy</p>
-            <p class="value">${data2.current.wind_kph} km/h</p>
-          </div>
+    <div class="card-container">
+      <p id="city">${data2.location.name}</p>
+      <p id="country">${data2.location.country}</p>
+      <p id="condition">${data2.current.condition.text}</p>
+      <p id="temp">${data2.current.temp_c}°</p>  
+      <div class="info">
+        <div class="precipitation">
+          <i class="fa-solid fa-cloud-rain"></i>
+          <p class="key">Precipitation</p>
+          <p class="value">${data2.current.precip_in}%</p>
+        </div>
+        <div class="humidity">
+          <i class="fa-solid fa-temperature-half"></i>
+          <p class="key">Humidity</p>
+          <p class="value">${data2.current.humidity}%</p>
+        </div>
+        <div class="wind">
+          <i class="fa-solid fa-wind"></i>
+          <p class="key">Wind speed</p>
+          <p class="value">${data2.current.wind_kph} km/h</p>
         </div>
       </div>
     </div>
   </div>
-    `;
+      `;
 };
 
 const error = () => {

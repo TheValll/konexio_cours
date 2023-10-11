@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -5,83 +7,57 @@
 }
 body {
   min-height: 100vh;
-  background-color: #5ecef0;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgb(27, 99, 149);
+  background: linear-gradient(
+    160deg,
+    rgba(27, 99, 149, 1) 0%,
+    rgba(201, 217, 206, 1) 100%
+  );
 }
 .card {
-  height: 90vh;
-  width: 450px;
-  background-color: rgb(15, 15, 15);
+  height: 568px;
+  width: 320px;
+  background: url(./bgCard.jpg) center/cover;
   border-radius: 50px;
+}
+.card-container {
   padding: 20px;
-}
-.card--container {
-  background-color: #5ecef0;
-  border-radius: 50px;
-  height: 75%;
-  width: 100%;
-  position: relative;
-}
-.crucial--infos {
-  color: white;
+  height: 100%;
   text-align: center;
-  padding-top: 30px;
-  font-family: Poppins;
-  font-weight: normal;
+  font-family: "Poppins", sans-serif;
+  color: white;
 }
-#location {
-  margin-top: 10px;
+#city {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 600;
 }
-#date {
-  margin-top: 10px;
-}
-#icon {
-  margin-top: 30px;
-}
-#temp {
-  font-size: 98px;
-  font-weight: 700;
-  margin-left: 30px;
-  margin-top: -30px;
+#country {
+  font-size: 18px;
+  font-weight: 400;
 }
 #condition {
-  font-size: 22px;
-  font-weight: 500;
-  margin-top: -10px;
+  margin-top: 50px;
+  font-size: 18px;
+  font-weight: 400;
 }
-/* 4ABADD */
-/* E5F9FF */
-
-.secondary--infos {
-  background-color: #e5f9ff;
-  height: 130px;
-  width: 315px;
-  border-radius: 20px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 100%;
-  left: 50%;
+#temp {
+  margin-left: 20px;
+  font-size: 64px;
+  font-weight: 400;
+  margin-top: -20px;
 }
-.secondary--infos--container {
+.info {
+  margin-top: 20px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
   text-align: center;
-  height: 100%;
+  background-color: rgba(255, 255, 255, 0.262);
+  padding: 5px;
+  border-radius: 20px;
 }
-.infos {
-  color: black;
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 14px;
-}
-.value {
-  color: black;
-  font-family: Poppins;
-  font-weight: 500;
-  font-size: 19px;
+.key {
+  font-size: 12px;
 }
