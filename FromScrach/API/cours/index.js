@@ -116,4 +116,17 @@ fetch("data.json")
 
 // Local storage
 
+// localStorage.key = blabla;
+// localStorage.removeItem("blabla");
+
+// On peux passer des objects via JSON.stringify et reconvertir cette string en object via JSON.parse
+
+// Session storage
+// La même chose que le local storage mais stocker que pendant la durer de la page ouverte
+// sessionStorage.key = value;
+// sessionStorage.clear("key");
+
 // Cookie + notif
+// document.cookie = "username=oui";
+
+// document.cookie = "pseudo=oui;path=/; max-age=111;secure; samesite;";
