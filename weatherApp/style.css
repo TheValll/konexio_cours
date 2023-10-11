@@ -1,1 +1,87 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-color: #5ecef0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  height: 90vh;
+  width: 450px;
+  background-color: rgb(15, 15, 15);
+  border-radius: 50px;
+  padding: 20px;
+}
+.card--container {
+  background-color: #5ecef0;
+  border-radius: 50px;
+  height: 75%;
+  width: 100%;
+  position: relative;
+}
+.crucial--infos {
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  font-family: Poppins;
+  font-weight: normal;
+}
+#location {
+  margin-top: 10px;
+  font-size: 24px;
+  font-weight: 500;
+}
+#date {
+  margin-top: 10px;
+}
+#icon {
+  margin-top: 30px;
+}
+#temp {
+  font-size: 98px;
+  font-weight: 700;
+  margin-left: 30px;
+  margin-top: -30px;
+}
+#condition {
+  font-size: 22px;
+  font-weight: 500;
+  margin-top: -10px;
+}
+/* 4ABADD */
+/* E5F9FF */
 
+.secondary--infos {
+  background-color: #e5f9ff;
+  height: 130px;
+  width: 315px;
+  border-radius: 20px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 100%;
+  left: 50%;
+}
+.secondary--infos--container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.infos {
+  color: black;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 14px;
+}
+.value {
+  color: black;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 19px;
+}
