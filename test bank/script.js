@@ -46,6 +46,8 @@ login__btn.addEventListener("click", (e) => {
     }
   }
   if (currentUser) {
+    form__signup.style.opacity = "0";
+    signup.style.display = "none";
     app.style.opacity = "1";
     welcome.textContent = `Welcome back ${currentUser.owner} !`;
     displayMovements(currentUser.movements);
@@ -58,6 +60,54 @@ login__btn.addEventListener("click", (e) => {
     login__input__pin.value = "";
   } else {
     alert("You don't have an account please create a new one");
+  }
+});
+
+// Sign up function
+
+signup.addEventListener("click", (e) => {
+  e.preventDefault();
+  form__signup.style.opacity = "1";
+});
+
+document.addEventListener("keydown", (e) => {
+  if (form__signup.style.opacity === "1" && e.key === "Escape") {
+    form__signup.style.opacity = "0";
+  }
+});
+
+register.addEventListener("click", (e) => {
+  e.preventDefault();
+  let newUser = null;
+  const newUserInitial = nameUser.value.toLowerCase();
+
+  for (const user of users) {
+    if (newUserInitial === user.initial()) {
+      newUser = user;
+      break;
+    }
+  }
+
+  if (
+    nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+$/) &&
+    pin.value.match(/^(0*[1-9][0-9]{0,3}|9999)$/) &&
+    !newUser
+  ) {
+    users.push(new Users(nameUser.value, [200], 1, Number(pin.value)));
+    form__signup.style.opacity = "0";
+    welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
+  } else {
+    if (nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+/)) {
+      pin.style.border = "2px solid red";
+      nameUser.style.border = "1px solid black";
+      nameUser.value = "";
+      pin.value = "";
+    } else if (!nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+/)) {
+      pin.style.border = "1px solid black";
+      nameUser.style.border = "2px solid red";
+      nameUser.value = "";
+      pin.value = "";
+    }
   }
 });
 
@@ -212,7 +262,7 @@ form__btn__close.addEventListener("click", (e) => {
     form__input__user.value = "";
     form__input__pin.value = "";
     currentUser = "";
-    console.log(users);
+    signup.style.display = "block";
   } else {
     alert("User and Pin need to be correct !");
   }

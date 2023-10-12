@@ -11,6 +11,11 @@
       rel="stylesheet"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
     <link rel="stylesheet" href="style.css" />
     <title>Bankist</title>
   </head>
@@ -37,9 +42,40 @@
           maxlength="4"
           autocomplete="off"
         />
+        <button id="signup">
+          Sign up <i class="fa-solid fa-user-plus"></i>
+        </button>
         <button id="login__btn">&rarr;</button>
       </form>
     </nav>
+
+    <form id="form__signup">
+      <div id="name_container">
+        <label for="nameUser">Please write your firstname and yourname</label>
+        <input
+          type="text"
+          id="nameUser"
+          autocomplete="off"
+          placeholder="e.g. Sarah Smith"
+        />
+        <span class="error" id="errorName"></span>
+      </div>
+      <div id="pin_container">
+        <label for="pin">PIN between 0001 and 9999</label>
+        <input
+          type="password"
+          id="pin"
+          autocomplete="off"
+          maxlength="4"
+          placeholder="0001"
+        />
+        <p id="progress-bar"></p>
+        <span class="error" id="errorPin"></span>
+      </div>
+      <div class="confirm_container">
+        <input type="submit" value="Confirm" id="register" />
+      </div>
+    </form>
 
     <main id="app">
       <!-- BALANCE -->
