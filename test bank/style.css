@@ -78,7 +78,7 @@ nav {
 .login__btn:hover,
 .login__btn:focus,
 #btn--sort:hover,
-#btn--sort:focus {
+#btn__sort:focus {
   outline: none;
   color: #777;
 }
@@ -94,7 +94,7 @@ nav {
   gap: 2rem;
 
   /* NOTE This creates the fade in/out anumation */
-  /* opacity: 0; */
+  opacity: 0;
   transition: all 1s;
 }
 
@@ -188,16 +188,16 @@ nav {
   margin-right: 2.5rem;
 }
 
-#summary__value--in,
-#summary__value--interest {
+#summary__value__in,
+#summary__value__interest {
   color: #66c873;
 }
 
-#summary__value--out {
+#summary__value__out {
   color: #f5465d;
 }
 
-#btn--sort {
+#btn__sort {
   margin-left: auto;
   border: none;
   background: none;
