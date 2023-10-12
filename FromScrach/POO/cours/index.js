@@ -6,21 +6,21 @@ const obj = {
 
   direBonjour: function () {
     console.log("Bonjour je suis " + this.pseudo);
-  }
+  },
   // direBonjour() {
   //   console.log("Bonjour je suis " + this.pseudo);
   // }
-}
+};
 
 // Ajouter
-obj.age = 24
-obj["admin"] = true
+obj.age = 24;
+obj["admin"] = true;
 
 // Modifier
-obj.pseudo = "FS"
+obj.pseudo = "FS";
 
 // Supprimer
-delete obj.ville
+delete obj.ville;
 
 // Checker si propriété existe
 // console.log("pseudo" in obj);
@@ -33,20 +33,20 @@ for (const key in obj) {
 // console.log(obj.direBonjour());
 
 // Obtenir les clés
-const keys = Object.keys(obj)
+const keys = Object.keys(obj);
 // console.log(keys);
 
 // Obtenir les valeurs
-const values = Object.values(obj)
+const values = Object.values(obj);
 // console.log(values);
 
-const nestedArray = Object.entries(obj)
+const nestedArray = Object.entries(obj);
 // console.log(nestedArray);
 
 const obj2 = {
   taille: "1m80",
   poids: "75kg",
-}
+};
 
 // Fusionner objects
 const fusion = Object.assign({}, obj, obj2);
@@ -56,7 +56,7 @@ const fusion = Object.assign({}, obj, obj2);
 // const newObj = Object.freeze(obj);
 const newObj = Object.seal(obj);
 newObj.pseudo = "Test";
-newObj.adresse = "42 avenue du code"
+newObj.adresse = "42 avenue du code";
 
 // console.log(newObj);
 
@@ -71,11 +71,11 @@ function User(pseudo, ville) {
 
   this.getCity = function () {
     console.log(this.pseudo + " habite à " + this.ville);
-  }
+  };
 }
 
-const user1 = new User('From Scratch', 'Bordeaux');
-const user2 = new User('Denis', 'Nantes');
+const user1 = new User("From Scratch", "Bordeaux");
+const user2 = new User("Denis", "Nantes");
 
 // console.log(user2.getCity());
 
@@ -84,10 +84,10 @@ const user2 = new User('Denis', 'Nantes');
 function User3(pseudo, ville) {
   return {
     pseudo,
-    ville
-  }
+    ville,
+  };
 }
-const user4 = User3('FS', "nice")
+const user4 = User3("FS", "nice");
 // console.log(user4);
 
 //------------------------
@@ -100,14 +100,14 @@ class Utilisateur {
   }
   sayMyName = function () {
     console.log("Bonjour je suis " + this.pseudo);
-  }
+  };
 }
 
-const user5 = new Utilisateur('Samia', "Lyon");
+const user5 = new Utilisateur("Samia", "Lyon");
 
 Utilisateur.prototype.sayCity = function () {
   console.log("J'habite à " + this.ville);
-}
+};
 
 Object.assign(Utilisateur.prototype, {
   method1() {
@@ -115,8 +115,8 @@ Object.assign(Utilisateur.prototype, {
   },
   method2() {
     // Ma méthode
-  }
-})
+  },
+});
 
 // console.log(user5);
 
@@ -127,7 +127,7 @@ Object.assign(Utilisateur.prototype, {
 class Animal {
   constructor(name, age) {
     this.name = name;
-    this.age = age
+    this.age = age;
   }
   saySomething(text) {
     console.log(this.name + " dit : " + text);
@@ -146,6 +146,5 @@ class Cat extends Animal {
   }
 }
 
-const rintintin = new Dog("Rintintin", 9)
+const rintintin = new Dog("Rintintin", 9);
 console.log(rintintin);
-

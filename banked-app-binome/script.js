@@ -235,7 +235,12 @@ btnTransfer.addEventListener("click", (e) => {
     }
   }
 
-  if (receiverAccount && Number(transferCount) <= balanceValue) {
+  if (
+    receiverAccount &&
+    Number(transferCount) <= balanceValue &&
+    receiverAccount !== currentAccount &&
+    Number(transferCount) > 0
+  ) {
     receiverAccount.movements.push(Number(transferCount));
     balanceValue -= Number(transferCount);
     currentAccount.movements.push(Number(transferCount * -1));
