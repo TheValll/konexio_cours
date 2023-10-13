@@ -1,6 +1,18 @@
 "use strict";
 
+///////////////////////////////////////////
+// Prevent option when user press enter key
+///////////////////////////////////////////
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+  }
+});
+
+///////
 // Data
+///////
 
 class Users {
   constructor(owner, movements, interestRate, pin) {
@@ -22,16 +34,12 @@ Users.prototype.initial = function () {
 };
 
 const users = [
-  new Users(
-    "Valentin Massonniere",
-    [200, 450, -400, 3000, -650, -130, 70, 1300],
-    1.2,
-    1111
-  ),
-  new Users("Visitor Visitor", [438, -1000, 727, 500, 93], 0.7, 2222),
+  new Users("Visitor Visitor", [438, -1000, 727, 500, 93], 0.7, 1111),
 ];
 
+//////////////////
 // Login Function
+//////////////////
 
 let currentUser = null;
 login__btn.addEventListener("click", (e) => {
@@ -59,11 +67,13 @@ login__btn.addEventListener("click", (e) => {
     login__input__user.value = "";
     login__input__pin.value = "";
   } else {
-    alert("You don't have an account please create a new one");
+    alert("You don't have an account, please create one !");
   }
 });
 
+///////////////////
 // Sign up function
+///////////////////
 
 signup.addEventListener("click", (e) => {
   e.preventDefault();
@@ -89,29 +99,33 @@ register.addEventListener("click", (e) => {
   }
 
   if (
-    nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+$/) &&
-    pin.value.match(/^(0*[1-9][0-9]{0,3}|9999)$/) &&
+    nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/) &&
+    pin.value.match(
+      /^(0{3}[1-9]|0{2}[1-9][0-9]|0[1-9][0-9]{2}|[1-9][0-9]{3}|9999)$/
+    ) &&
     !newUser
   ) {
     users.push(new Users(nameUser.value, [200], 1, Number(pin.value)));
     form__signup.style.opacity = "0";
     welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
+    nameUser.value = "";
+    pin.value = "";
+    login__input__user.value = "";
+    login__input__pin.value = "";
   } else {
-    if (nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+/)) {
+    if (nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/)) {
       pin.style.border = "2px solid red";
       nameUser.style.border = "1px solid black";
-      nameUser.value = "";
-      pin.value = "";
-    } else if (!nameUser.value.match(/^[a-zA-Z]+ [a-zA-Z]+/)) {
-      pin.style.border = "1px solid black";
+    } else {
       nameUser.style.border = "2px solid red";
-      nameUser.value = "";
-      pin.value = "";
+      pin.style.border = "1px solid black";
     }
   }
 });
 
+////////////////////
 // Display movements
+////////////////////
 
 const displayMovements = (user) => {
   movements.innerHTML = "";
@@ -131,7 +145,9 @@ const displayMovements = (user) => {
   return;
 };
 
+//////////////////
 // Current balance
+//////////////////
 
 const displayCurrentBalance = () => {
   let currentBalance = 0;
@@ -156,7 +172,9 @@ let dateUpdate = () => {
   return (date.textContent = dateFormat);
 };
 
+///////////////////////////
 // In/Out/Interrest Display
+///////////////////////////
 
 const InOutInterrestDisplay = () => {
   let inArrayValue = 0;
@@ -177,7 +195,9 @@ const InOutInterrestDisplay = () => {
   return;
 };
 
+////////////////
 // Sort Function
+////////////////
 
 btn__sort.addEventListener("click", (e) => {
   if (e.target.innerHTML === "↓ SORT") {
@@ -192,7 +212,9 @@ btn__sort.addEventListener("click", (e) => {
   }
 });
 
+//////////////////
 // Transfert Money
+//////////////////
 
 form__btn__transfer.addEventListener("click", (e) => {
   e.preventDefault();
@@ -220,12 +242,14 @@ form__btn__transfer.addEventListener("click", (e) => {
     form__input__amount.value = "";
   } else {
     alert(
-      "User of the receiver need to be correct and you need have the necessary money !"
+      "You must write the initials of the receiver and have the necessary money in your account !"
     );
   }
 });
 
+///////////////
 // Request Loan
+///////////////
 
 form__btn__loan.addEventListener("click", (e) => {
   e.preventDefault();
@@ -243,11 +267,15 @@ form__btn__loan.addEventListener("click", (e) => {
       InOutInterrestDisplay();
     }, 3000);
   } else {
-    alert("Your request need to be > than 10% of your recents deposit");
+    alert(
+      "Your credit application must not exceed 10% of your highest deposit !"
+    );
   }
 });
 
+////////////////
 // Close account
+////////////////
 
 form__btn__close.addEventListener("click", (e) => {
   e.preventDefault();
@@ -264,11 +292,13 @@ form__btn__close.addEventListener("click", (e) => {
     currentUser = "";
     signup.style.display = "block";
   } else {
-    alert("User and Pin need to be correct !");
+    alert("Your credentials must be correct !");
   }
 });
 
+////////
 // Timer
+////////
 
 let countdownInterval = null;
 
