@@ -17,21 +17,18 @@ document.addEventListener("keydown", (e) => {
 class Users {
   constructor(owner, movements, interestRate, pin, dates) {
     this.owner = owner;
-    this.movements = movements;
+    this.movements = movements.map((mov, i) => ({ mov, date: dates[i] }));
     this.interestRate = interestRate;
     this.pin = pin;
-    this.dates = dates;
   }
 }
+
 Users.prototype.initial = function () {
-  const words = this.owner.split(" ");
-  let initials = "";
-  for (const word of words) {
-    if (word.length > 0) {
-      initials += word[0].toLowerCase();
-    }
-  }
-  return initials;
+  let words = "";
+  this.owner.split(" ").map((word) => {
+    if (word.length > 0) words += word[0].toLowerCase();
+  });
+  return words;
 };
 
 const users = [
@@ -42,6 +39,16 @@ const users = [
   ]),
 ];
 
+//////////////
+// Reload page
+//////////////
+
+const reloadStat = () => {
+  displayMovements(currentUser.movements);
+  displayCurrentBalance();
+  InOutInterrestDisplay();
+};
+
 //////////////////
 // Login Function
 //////////////////
@@ -49,24 +56,18 @@ const users = [
 let currentUser = null;
 login__btn.addEventListener("click", (e) => {
   e.preventDefault();
-  for (const user of users) {
-    if (
+  currentUser = users.find(
+    (user) =>
       user.initial() === login__input__user.value &&
       user.pin === Number(login__input__pin.value)
-    ) {
-      currentUser = user;
-      break;
-    }
-  }
+  );
   if (currentUser) {
     form__signup.style.opacity = "0";
     signup.style.display = "none";
     app.style.opacity = "1";
     welcome.textContent = `Welcome back ${currentUser.owner} !`;
-    displayMovements(currentUser.movements, dateCalc());
-    displayCurrentBalance();
-    InOutInterrestDisplay();
-    dateUpdate();
+    reloadStat();
+    date.textContent = new Intl.DateTimeFormat("fr-FR").format(new Date());
     clearInterval(countdownInterval);
     timerFiveMin();
     login__input__user.value = "";
@@ -134,23 +135,21 @@ register.addEventListener("click", (e) => {
 // Display movements
 ////////////////////
 
-const displayMovements = (user, dates) => {
+const displayMovements = (user) => {
   movements.innerHTML = "";
 
-  user.forEach((mov, i) => {
-    const type = mov > 0 ? "deposit" : "withdrawal";
+  user.forEach((movObj, i) => {
+    const type = movObj.mov > 0 ? "deposit" : "withdrawal";
 
     const html = `
     <div class="movements__row">
     <div class="movements__type movements__type--${type}">${i + 1}${type}</div>
-    <div class="movements__date"></div>
-    <div class="movements__value">${mov}€</div>
+    <div class="movements__date">${dateCalc(
+      movObj.date
+    )}</div> <!-- Change here -->
+    <div class="movements__value">${movObj.mov}€</div>
   </div>`;
     movements.insertAdjacentHTML("afterbegin", html);
-  });
-  const inputDates = document.querySelectorAll(".movements__date");
-  inputDates.forEach((input, i) => {
-    input.textContent = dates[i];
   });
 };
 
@@ -160,50 +159,27 @@ const displayMovements = (user, dates) => {
 
 const displayCurrentBalance = () => {
   let currentBalance = 0;
-  for (let i = 0; i < currentUser.movements.length; i++) {
-    currentBalance += currentUser.movements[i];
-  }
+  currentUser.movements.forEach((movObj) => {
+    currentBalance += movObj.mov;
+  });
   currentUser.balance = currentBalance;
   return (balance__value.textContent = `${currentBalance} €`);
 };
 
-///////////////
-// Date Update
-///////////////
-
-let dateUpdate = () => {
-  const currentDate = new Date();
-  const day = currentDate.getDate();
-  const mounth = currentDate.getMonth() + 1;
-  const years = currentDate.getFullYear();
-  const hours = currentDate.getHours();
-  const minutes = currentDate.getMinutes();
-  if (mounth < 10) {
-    mounth = "0" + mounth;
-  }
-  let dateFormat =
-    mounth + "/" + day + "/" + years + " AT " + hours + "h" + minutes;
-  return (date.textContent = dateFormat);
-};
-
+//////////////
 // Dates Calc
+//////////////
 
-let dateCalc = () => {
-  const results = currentUser.dates.map((dates) => {
-    let todayDiff = new Date() - new Date(dates);
-    let result = Math.floor(todayDiff / (1000 * 60 * 60 * 24));
-    if (result < 1) {
-      return "Today";
-    }
-    if (result === 1) {
-      return "Yesterday";
-    }
-    if (result > 1) {
-      return result + " days ago";
-    }
-  });
+let dateCalc = (date) => {
+  let result = Math.floor(
+    (new Date() - new Date(date)) / (1000 * 60 * 60 * 24)
+  );
 
-  return results;
+  return result < 1
+    ? "Today"
+    : result === 1
+    ? "Yesterday"
+    : result + " days ago";
 };
 
 ///////////////////////////
@@ -213,15 +189,13 @@ let dateCalc = () => {
 const InOutInterrestDisplay = () => {
   let inArrayValue = 0;
   let outArrayValue = 0;
-  for (let i = 0; i < currentUser.movements.length; i++) {
-    if (currentUser.movements[i] > 0) {
-      inArrayValue += currentUser.movements[i];
-      summary__value__in.textContent = `${inArrayValue} €`;
-    } else {
-      outArrayValue += currentUser.movements[i];
-      summary__value__out.textContent = `${outArrayValue * -1} €`;
-    }
-  }
+  currentUser.movements.map((obj) => {
+    obj.mov > 0
+      ? (summary__value__in.textContent = `${(inArrayValue += obj.mov)} €`)
+      : (summary__value__out.textContent = `${(outArrayValue +=
+          obj.mov * -1)} €`);
+  });
+
   summary__value__interest.textContent = `${(
     (inArrayValue * currentUser.interestRate) /
     100
@@ -234,16 +208,17 @@ const InOutInterrestDisplay = () => {
 ////////////////
 
 btn__sort.addEventListener("click", (e) => {
-  if (e.target.innerHTML === "↓ SORT") {
-    btn__sort.innerHTML = "↑ SORT";
-    const sortMovements = [];
-    sortMovements.push(...currentUser.movements);
-    sortMovements.sort((a, b) => a - b);
-    displayMovements(sortMovements, dateCalc());
-  } else if (e.target.innerHTML === "↑ SORT") {
-    btn__sort.innerHTML = "↓ SORT";
-    displayMovements(currentUser.movements, dateCalc());
-  }
+  e.target.innerHTML === "↓ SORT"
+    ? (() => {
+        btn__sort.innerHTML = "↑ SORT";
+        const sortMovements = [...currentUser.movements];
+        sortMovements.sort((a, b) => a.mov - b.mov);
+        displayMovements(sortMovements);
+      })()
+    : (() => {
+        btn__sort.innerHTML = "↓ SORT";
+        displayMovements(currentUser.movements);
+      })();
 });
 
 //////////////////
@@ -265,14 +240,16 @@ form__btn__transfer.addEventListener("click", (e) => {
     Number(form__input__amount.value) <= currentUser.balance &&
     Number(form__input__amount.value) > 0
   ) {
-    transferUser.movements.push(Number(form__input__amount.value));
-    transferUser.dates.unshift(new Date());
-    currentUser.movements.push(Number(form__input__amount.value * -1));
-    currentUser.dates.unshift(new Date());
+    transferUser.movements.push({
+      mov: Number(form__input__amount.value),
+      date: new Date(),
+    });
+    currentUser.movements.push({
+      mov: Number(form__input__amount.value * -1),
+      date: new Date(),
+    });
     setTimeout(() => {
-      displayMovements(currentUser.movements, dateCalc());
-      displayCurrentBalance();
-      InOutInterrestDisplay();
+      reloadStat();
     }, 3000);
     form__input__to.value = "";
     form__input__amount.value = "";
@@ -291,17 +268,15 @@ form__btn__loan.addEventListener("click", (e) => {
   e.preventDefault();
   let request = form__input__loa__amount.value;
   if (
-    Math.max(...currentUser.movements) >= (request * 10) / 100 &&
+    Math.max(...currentUser.movements.map((movObj) => movObj.mov)) >=
+      (request * 10) / 100 &&
     request > 0
   ) {
     form__input__loa__amount.value = "";
     currentUser.balance += Number(request);
-    currentUser.movements.push(Number(request));
-    currentUser.dates.unshift(new Date());
+    currentUser.movements.push({ mov: Number(request), date: new Date() });
     setTimeout(() => {
-      displayMovements(currentUser.movements, dateCalc());
-      displayCurrentBalance();
-      InOutInterrestDisplay();
+      reloadStat();
     }, 3000);
   } else {
     alert(
