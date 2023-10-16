@@ -15,11 +15,12 @@ document.addEventListener("keydown", (e) => {
 ///////
 
 class Users {
-  constructor(owner, movements, interestRate, pin) {
+  constructor(owner, movements, interestRate, pin, dates) {
     this.owner = owner;
     this.movements = movements;
     this.interestRate = interestRate;
     this.pin = pin;
+    this.dates = dates;
   }
 }
 Users.prototype.initial = function () {
@@ -34,7 +35,11 @@ Users.prototype.initial = function () {
 };
 
 const users = [
-  new Users("Visitor Visitor", [438, -1000, 727, 500, 93], 0.7, 1111),
+  new Users("Visitor Visitor", [438, -1000, 727], 0.7, 1111, [
+    "03/10/2022 AT 12H45",
+    "12/10/2022 AT 09H34",
+    "24/11/2022 AT 19H35",
+  ]),
 ];
 
 //////////////////
@@ -58,7 +63,7 @@ login__btn.addEventListener("click", (e) => {
     signup.style.display = "none";
     app.style.opacity = "1";
     welcome.textContent = `Welcome back ${currentUser.owner} !`;
-    displayMovements(currentUser.movements);
+    displayMovements(currentUser.movements, currentUser.dates);
     displayCurrentBalance();
     InOutInterrestDisplay();
     dateUpdate();
@@ -105,7 +110,9 @@ register.addEventListener("click", (e) => {
     ) &&
     !newUser
   ) {
-    users.push(new Users(nameUser.value, [200], 1, Number(pin.value)));
+    users.push(
+      new Users(nameUser.value, [200], 1, Number(pin.value), [dateUpdate()])
+    );
     form__signup.style.opacity = "0";
     welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
     nameUser.value = "";
@@ -127,7 +134,7 @@ register.addEventListener("click", (e) => {
 // Display movements
 ////////////////////
 
-const displayMovements = (user) => {
+const displayMovements = (user, dates) => {
   movements.innerHTML = "";
 
   user.forEach((mov, i) => {
@@ -136,13 +143,15 @@ const displayMovements = (user) => {
     const html = `
     <div class="movements__row">
     <div class="movements__type movements__type--${type}">${i + 1}${type}</div>
-    <div class="movements__date">3 days ago</div>
+    <div class="movements__date"></div>
     <div class="movements__value">${mov}€</div>
   </div>`;
-
     movements.insertAdjacentHTML("afterbegin", html);
   });
-  return;
+  const dateInput = document.querySelectorAll(".movements__date");
+  dateInput.forEach((input, i) => {
+    input.textContent = dates[i];
+  });
 };
 
 //////////////////
@@ -158,17 +167,22 @@ const displayCurrentBalance = () => {
   return (balance__value.textContent = `${currentBalance} €`);
 };
 
+///////////////
 // Date Update
+///////////////
 
 let dateUpdate = () => {
   const currentDate = new Date();
   const day = currentDate.getDate();
   const mounth = currentDate.getMonth() + 1;
   const years = currentDate.getFullYear();
+  const hours = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
   if (mounth < 10) {
     mounth = "0" + mounth;
   }
-  let dateFormat = mounth + "/" + day + "/" + years;
+  let dateFormat =
+    mounth + "/" + day + "/" + years + " AT " + hours + "h" + minutes;
   return (date.textContent = dateFormat);
 };
 
@@ -205,10 +219,10 @@ btn__sort.addEventListener("click", (e) => {
     const sortMovements = [];
     sortMovements.push(...currentUser.movements);
     sortMovements.sort((a, b) => a - b);
-    displayMovements(sortMovements);
+    displayMovements(sortMovements, currentUser.dates);
   } else if (e.target.innerHTML === "↑ SORT") {
     btn__sort.innerHTML = "↓ SORT";
-    displayMovements(currentUser.movements);
+    displayMovements(currentUser.movements, currentUser.dates);
   }
 });
 
@@ -233,8 +247,9 @@ form__btn__transfer.addEventListener("click", (e) => {
   ) {
     transferUser.movements.push(Number(form__input__amount.value));
     currentUser.movements.push(Number(form__input__amount.value * -1));
+    currentUser.dates.unshift(dateUpdate());
     setTimeout(() => {
-      displayMovements(currentUser.movements);
+      displayMovements(currentUser.movements, currentUser.dates);
       displayCurrentBalance();
       InOutInterrestDisplay();
     }, 3000);
@@ -261,8 +276,9 @@ form__btn__loan.addEventListener("click", (e) => {
     form__input__loa__amount.value = "";
     currentUser.balance += Number(request);
     currentUser.movements.push(Number(request));
+    currentUser.dates.unshift(dateUpdate());
     setTimeout(() => {
-      displayMovements(currentUser.movements);
+      displayMovements(currentUser.movements, currentUser.dates);
       displayCurrentBalance();
       InOutInterrestDisplay();
     }, 3000);

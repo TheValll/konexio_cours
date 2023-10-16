@@ -63,6 +63,7 @@ ul li {
   position: relative;
   width: 100%;
   font-family: "Open Sans", sans-serif;
+  user-select: none;
 }
 ul li::before {
   content: "";
