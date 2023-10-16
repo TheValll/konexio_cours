@@ -36,9 +36,9 @@ Users.prototype.initial = function () {
 
 const users = [
   new Users("Visitor Visitor", [438, -1000, 727], 0.7, 1111, [
-    "03/10/2022 AT 12H45",
-    "12/10/2022 AT 09H34",
-    "24/11/2022 AT 19H35",
+    "03/10/2022",
+    "12/10/2022",
+    "10/16/2023",
   ]),
 ];
 
@@ -63,7 +63,7 @@ login__btn.addEventListener("click", (e) => {
     signup.style.display = "none";
     app.style.opacity = "1";
     welcome.textContent = `Welcome back ${currentUser.owner} !`;
-    displayMovements(currentUser.movements, currentUser.dates);
+    displayMovements(currentUser.movements, dateCalc());
     displayCurrentBalance();
     InOutInterrestDisplay();
     dateUpdate();
@@ -111,7 +111,7 @@ register.addEventListener("click", (e) => {
     !newUser
   ) {
     users.push(
-      new Users(nameUser.value, [200], 1, Number(pin.value), [dateUpdate()])
+      new Users(nameUser.value, [200], 1, Number(pin.value), [new Date()])
     );
     form__signup.style.opacity = "0";
     welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
@@ -148,8 +148,8 @@ const displayMovements = (user, dates) => {
   </div>`;
     movements.insertAdjacentHTML("afterbegin", html);
   });
-  const dateInput = document.querySelectorAll(".movements__date");
-  dateInput.forEach((input, i) => {
+  const inputDates = document.querySelectorAll(".movements__date");
+  inputDates.forEach((input, i) => {
     input.textContent = dates[i];
   });
 };
@@ -186,6 +186,26 @@ let dateUpdate = () => {
   return (date.textContent = dateFormat);
 };
 
+// Dates Calc
+
+let dateCalc = () => {
+  const results = currentUser.dates.map((dates) => {
+    let todayDiff = new Date() - new Date(dates);
+    let result = Math.floor(todayDiff / (1000 * 60 * 60 * 24));
+    if (result < 1) {
+      return "Today";
+    }
+    if (result === 1) {
+      return "Yesterday";
+    }
+    if (result > 1) {
+      return result + " days ago";
+    }
+  });
+
+  return results;
+};
+
 ///////////////////////////
 // In/Out/Interrest Display
 ///////////////////////////
@@ -219,10 +239,10 @@ btn__sort.addEventListener("click", (e) => {
     const sortMovements = [];
     sortMovements.push(...currentUser.movements);
     sortMovements.sort((a, b) => a - b);
-    displayMovements(sortMovements, currentUser.dates);
+    displayMovements(sortMovements, dateCalc());
   } else if (e.target.innerHTML === "↑ SORT") {
     btn__sort.innerHTML = "↓ SORT";
-    displayMovements(currentUser.movements, currentUser.dates);
+    displayMovements(currentUser.movements, dateCalc());
   }
 });
 
@@ -246,10 +266,11 @@ form__btn__transfer.addEventListener("click", (e) => {
     Number(form__input__amount.value) > 0
   ) {
     transferUser.movements.push(Number(form__input__amount.value));
+    transferUser.dates.unshift(new Date());
     currentUser.movements.push(Number(form__input__amount.value * -1));
-    currentUser.dates.unshift(dateUpdate());
+    currentUser.dates.unshift(new Date());
     setTimeout(() => {
-      displayMovements(currentUser.movements, currentUser.dates);
+      displayMovements(currentUser.movements, dateCalc());
       displayCurrentBalance();
       InOutInterrestDisplay();
     }, 3000);
@@ -276,9 +297,9 @@ form__btn__loan.addEventListener("click", (e) => {
     form__input__loa__amount.value = "";
     currentUser.balance += Number(request);
     currentUser.movements.push(Number(request));
-    currentUser.dates.unshift(dateUpdate());
+    currentUser.dates.unshift(new Date());
     setTimeout(() => {
-      displayMovements(currentUser.movements, currentUser.dates);
+      displayMovements(currentUser.movements, dateCalc());
       displayCurrentBalance();
       InOutInterrestDisplay();
     }, 3000);
