@@ -1,19 +1,22 @@
-// https://pokeapi.co/api/v2/pokemon/ditto
-
 const pokemonContainer = document.getElementById("pokemonContainer");
 const next = document.getElementById("next");
+const addedPokemonNumbers = ["Pikachu"];
 
 const addCard = async () => {
-  const randomNumber = Math.ceil(Math.random() * 150 + 1);
+  let randomNumber;
+  randomNumber = Math.ceil(Math.random() * 150 + 1);
   const capitalizeFLetter = (name) => {
     return name[0].toUpperCase() + name.slice(1);
   };
+
   await fetch(`https://pokeapi.co/api/v2/pokemon/${randomNumber}`, {
     method: "get",
   })
     .then((res) => res.json())
     .then((data) => {
-      pokemonContainer.innerHTML += `
+      if (!addedPokemonNumbers.includes(data.name)) {
+        addedPokemonNumbers.push(data.name);
+        pokemonContainer.innerHTML += `
     <div class="pokemon electric ${data.types[0].type.name}">
         <div class="imgContainer">
         <img
@@ -27,6 +30,7 @@ const addCard = async () => {
         </div>
     </div>
     `;
+      }
     });
 };
 
