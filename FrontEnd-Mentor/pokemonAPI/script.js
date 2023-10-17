@@ -1,6 +1,6 @@
 const pokemonContainer = document.getElementById("pokemonContainer");
 const next = document.getElementById("next");
-const addedPokemonNumbers = ["Pikachu"];
+const addedPokemonNumbers = ["pikachu"];
 
 const addCard = async () => {
   let randomNumber;
