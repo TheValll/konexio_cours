@@ -33,9 +33,9 @@ Users.prototype.initial = function () {
 
 const users = [
   new Users("Visitor Visitor", [438, -1000, 727], 0.7, 1111, [
-    "03/10/2022",
-    "12/10/2022",
-    "10/16/2023",
+    "2023-09-09T17:01:17.194Z",
+    "2023-09-18T23:36:17.929Z",
+    "2023-09-21T10:51:36.790Z",
   ]),
 ];
 
@@ -94,39 +94,36 @@ document.addEventListener("keydown", (e) => {
 
 register.addEventListener("click", (e) => {
   e.preventDefault();
-  let newUser = null;
-  users.find((user) => {
-    if (nameUser.value.toLowerCase() === user.initial()) {
-      newUser = user;
-    }
-  });
-  // }
+  const existingUser = users.find((user) => user.owner === nameUser.value);
 
-  if (
-    nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/) &&
-    pin.value.match(
-      /^(0{3}[1-9]|0{2}[1-9][0-9]|0[1-9][0-9]{2}|[1-9][0-9]{3}|9999)$/
-    ) &&
-    !newUser
-  ) {
-    users.push(
-      new Users(nameUser.value, [200], 1, Number(pin.value), [new Date()])
+  if (existingUser) {
+    alert(
+      "A user with the same name already exists. Please choose a different name."
     );
-    form__signup.style.opacity = "0";
-    welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
-    nameUser.value = "";
-    pin.value = "";
-    login__input__user.value = "";
-    login__input__pin.value = "";
-  } else {
-    if (nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/)) {
-      pin.style.border = "2px solid red";
-      nameUser.style.border = "1px solid black";
-    } else {
-      nameUser.style.border = "2px solid red";
-      pin.style.border = "1px solid black";
-    }
+    return;
   }
+
+  if (!nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/)) {
+    nameUser.style.border = "2px solid red";
+    pin.style.border = "1px solid black";
+    return;
+  }
+
+  if (!pin.value.match(/^\d{4}$/)) {
+    pin.style.border = "2px solid red";
+    nameUser.style.border = "1px solid black";
+    return;
+  }
+
+  users.push(
+    new Users(nameUser.value, [200], 1, Number(pin.value), [new Date()])
+  );
+  form__signup.style.opacity = "0";
+  welcome.textContent = `Welcome ! Your user is your initials, for example, "Sarah Smith" -> "ss"`;
+  nameUser.value = "";
+  pin.value = "";
+  login__input__user.value = "";
+  login__input__pin.value = "";
 });
 
 ////////////////////
@@ -145,7 +142,7 @@ const displayMovements = (user) => {
     <div class="movements__date">${dateCalc(
       movObj.date
     )}</div> <!-- Change here -->
-    <div class="movements__value">${movObj.mov}€</div>
+    <div class="movements__value">${movObj.mov.toFixed(2)}€</div>
   </div>`;
     movements.insertAdjacentHTML("afterbegin", html);
   });
@@ -161,7 +158,7 @@ const displayCurrentBalance = () => {
     currentBalance += movObj.mov;
   });
   currentUser.balance = currentBalance;
-  return (balance__value.textContent = `${currentBalance} €`);
+  return (balance__value.textContent = `${currentUser.balance.toFixed(2)} €`);
 };
 
 //////////////
@@ -189,9 +186,11 @@ const InOutInterrestDisplay = () => {
   let outArrayValue = 0;
   currentUser.movements.map((obj) => {
     obj.mov > 0
-      ? (summary__value__in.textContent = `${(inArrayValue += obj.mov)} €`)
+      ? (summary__value__in.textContent = `${(inArrayValue += obj.mov).toFixed(
+          2
+        )} €`)
       : (summary__value__out.textContent = `${(outArrayValue +=
-          obj.mov * -1)} €`);
+          obj.mov * -1).toFixed(2)} €`);
   });
 
   summary__value__interest.textContent = `${(
@@ -226,12 +225,7 @@ btn__sort.addEventListener("click", (e) => {
 form__btn__transfer.addEventListener("click", (e) => {
   e.preventDefault();
   let transferUser = "";
-  for (const user of users) {
-    if (user.initial() === form__input__to.value) {
-      transferUser = user;
-      break;
-    }
-  }
+  transferUser = users.find((user) => user.initial() === form__input__to.value);
   if (
     transferUser &&
     transferUser !== currentUser &&
@@ -289,8 +283,13 @@ form__btn__loan.addEventListener("click", (e) => {
 
 form__btn__close.addEventListener("click", (e) => {
   e.preventDefault();
+  const initials = currentUser.owner
+    .split(" ")
+    .map((name) => name.charAt(0))
+    .join("")
+    .toLowerCase();
   if (
-    form__input__user.value === currentUser.initial() &&
+    form__input__user.value === initials &&
     Number(form__input__pin.value) === currentUser.pin
   ) {
     let userDelete = users.indexOf(currentUser);
