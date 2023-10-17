@@ -95,14 +95,12 @@ document.addEventListener("keydown", (e) => {
 register.addEventListener("click", (e) => {
   e.preventDefault();
   let newUser = null;
-  const newUserInitial = nameUser.value.toLowerCase();
-
-  for (const user of users) {
-    if (newUserInitial === user.initial()) {
+  users.find((user) => {
+    if (nameUser.value.toLowerCase() === user.initial()) {
       newUser = user;
-      break;
     }
-  }
+  });
+  // }
 
   if (
     nameUser.value.match(/^[A-Z][a-z]+ [A-Z][a-z]+$/) &&
