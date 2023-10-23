@@ -4,7 +4,7 @@ const addedPokemonNumbers = ["pikachu"];
 
 const addCard = async () => {
   let randomNumber;
-  randomNumber = Math.floor(Math.random() * 150 + 1);
+  randomNumber = Math.floor(Math.random() * 1110 + 1);
   const capitalizeFLetter = (name) => {
     return name[0].toUpperCase() + name.slice(1);
   };
