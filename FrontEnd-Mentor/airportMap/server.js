@@ -32,7 +32,13 @@ app.use(
   })
 );
 app.use(
-  r.get("/airports", (ctx) => {
+  r.get("/bg.jpeg", (ctx) => {
+    ctx.type = "image/jpeg";
+    ctx.body = fs.readFileSync("./bg.jpeg");
+  })
+);
+app.use(
+  r.get("/aeroports", (ctx) => {
     ctx.type = "text/json";
     ctx.body = fs.readFileSync("./aeroports.json");
   })
@@ -44,12 +50,29 @@ app.use(
   })
 );
 app.use(
+  r.get("/loupe.png", (ctx) => {
+    ctx.type = "image/png";
+    ctx.body = fs.readFileSync("./loupe.png");
+  })
+);
+app.use(
+  r.get("/marker.png", (ctx) => {
+    ctx.type = "image/png";
+    ctx.body = fs.readFileSync("./marker.png");
+  })
+);
+app.use(
+  r.get("/favicon.png", (ctx) => {
+    ctx.type = "image/png";
+    ctx.body = fs.readFileSync("./favicon.png");
+  })
+);
+app.use(
   r.get("/style.css", (ctx) => {
     ctx.type = "text/css";
     ctx.body = fs.readFileSync("./style.css");
   })
 );
-
 app.listen(3000, () => {
   console.log("en écoute sur le port: 3000");
 });

@@ -10,10 +10,43 @@
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
       crossorigin=""
     />
+    <link rel="icon" type="image/x-icon" href="./favicon.png" />
     <title>AirPort Map</title>
   </head>
   <body>
-    <div id="map"></div>
+    <header>
+      <h1>Find all airport in a country</h1>
+      <div class="btn-container">
+        <input
+          type="text"
+          placeholder="Enter a country"
+          id="input"
+          autocomplete="off"
+        />
+        <input type="button" value=" " id="submit" />
+      </div>
+    </header>
+    <div class="app">
+      <div class="date">
+        <p class="nameCountry"></p>
+      </div>
+      <div class="map-container">
+        <div id="map"></div>
+        <div class="infos">
+          <img
+            src="https://mainfacts.com/media/images/coats_of_arms/fr.png"
+            alt="country flags"
+            height="50px"
+            id="flags"
+          />
+          <p id="region"></p>
+          <p id="capital"></p>
+          <p id="population"></p>
+          <p id="language"></p>
+          <p id="currencies"></p>
+        </div>
+      </div>
+    </div>
     <script
       src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
       integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
