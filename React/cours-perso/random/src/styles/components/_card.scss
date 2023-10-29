@@ -1,0 +1,31 @@
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .card {
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: "Open Sans", sans-serif;
+    margin: 20px;
+
+    .assets {
+      margin: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+    ul {
+      margin: 20px;
+      li {
+        list-style: none;
+      }
+    }
+    #instruction {
+      margin: 20px auto;
+      width: 300px;
+    }
+  }
+}
