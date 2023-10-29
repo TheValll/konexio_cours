@@ -8,11 +8,11 @@
 body {
   color: white;
   background: url(../assets/img/bg.jpg) center/cover no-repeat;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   font-family: "Open Sans", sans-serif;
   .app {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 40% 60%;
     min-height: 100vh;
   }
   .app-left {
@@ -26,5 +26,6 @@ body {
     gap: 30px;
     margin: 50px;
     display: flex;
+    height: 650px;
   }
 }

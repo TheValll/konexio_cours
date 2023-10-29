@@ -4,7 +4,9 @@ const Nextdays = () => {
   return (
     <div className="nextday">
       <h3>7-Day Forecast</h3>
+
       <div className="ligne"></div>
+
       <div className="next-forecast-container">
         <div className="nextforecastlist">
           <p className="day">Yesterday</p>

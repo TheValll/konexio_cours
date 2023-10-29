@@ -1,6 +1,7 @@
 import Current from "./components/Current";
 import Nextdays from "./components/Nextdays";
 import Todayforecast from "./components/Todayforecast";
+import Map from "./components/Map";
 import "./styles/index.scss";
 
 function App() {
@@ -10,7 +11,10 @@ function App() {
         <Current />
       </div>
       <div className="app-right">
-        <Todayforecast />
+        <div className="left">
+          <Todayforecast />
+          <Map />
+        </div>
         <Nextdays />
       </div>
     </div>
