@@ -1,0 +1,35 @@
+.today-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  width: 70%;
+  height: 250px;
+  h3 {
+    font-weight: 600;
+    margin-left: 20px;
+  }
+  .ligne {
+    margin: 20px;
+    width: 90%;
+    height: 1px;
+    background-color: white;
+  }
+  .today-forecast-container {
+    display: flex;
+    align-items: center;
+    .forecastlist {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      img {
+        width: 50%;
+        margin: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.nextday {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  width: 70%;
+  height: 600px;
+  h3 {
+    font-weight: 600;
+    margin-left: 20px;
+  }
+  .ligne {
+    margin: 20px;
+    width: 90%;
+    height: 1px;
+    background-color: white;
+  }
+  .next-forecast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    .nextforecastlist {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 15%;
+        margin-right: 50px;
+      }
+      .day {
+        width: 100px;
+      }
+      p {
+        margin: 0 10px;
+      }
+      .lignetemps {
+        height: 2px;
+        width: 70px;
+        background-color: white;
+      }
+    }
+  }
+}

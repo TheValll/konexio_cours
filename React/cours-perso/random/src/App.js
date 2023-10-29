@@ -9,9 +9,13 @@ function App() {
 
   const data = () => {
     try {
-      axios.get(`/api/json/v1/1/search.php?s=${userInput}`).then((res) => {
-        setMeals(res.data.meals);
-      });
+      axios
+        .get(
+          `https://www.themealdb.com/api/json/v1/1/search.php?s=${userInput}`
+        )
+        .then((res) => {
+          setMeals(res.data.meals);
+        });
     } catch {
       return;
     }
