@@ -28,30 +28,28 @@ const Current = ({ data, location, getWeatherDescription }) => {
     }
   }, [location]);
 
-  return data && location ? (
-    <div className="weather-infos">
-      <div className="weather">
-        <h1>{data.current.temperature_2m}°C</h1>
-        <img
-          src={`./assets/icons/${getWeatherDescription(
-            data.current.weathercode
-          )}.png`}
-          alt="current weather icon"
-        />
+  const displayCurrentFile = (currentData) => {
+    return (
+      <div className="weather-infos">
+        <div className="weather">
+          <h1>{currentData.current.temperature_2m}°C</h1>
+          <img
+            src={`./assets/icons/${getWeatherDescription(
+              currentData.current.weathercode
+            )}.png`}
+            alt="current weather icon"
+          />
+        </div>
+        <h3>{city}</h3>
+        <p>
+          {dateFormat()} | L:
+          {currentData.daily.temperature_2m_min[1]}°C - H:
+          {currentData.daily.temperature_2m_max[1]}°C
+        </p>
       </div>
-      <h3>{city}</h3>
-      <p>
-        {dateFormat()} | L:
-        {data.daily.temperature_2m_min[1]}°C - H:
-        {data.daily.temperature_2m_max[1]}°C
-      </p>
-      <div className="btn-container">
-        <input type="text" id="input" placeholder="Enter a city" />
-        <input type="submit" value="" id="submit" />
-      </div>
-    </div>
-  ) : (
-    <div>Loading...</div>
-  );
+    );
+  };
+
+  return data && location ? displayCurrentFile(data) : <div>Loading...</div>;
 };
 export default Current;

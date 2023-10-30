@@ -38,31 +38,31 @@ const Todayforecast = ({ data, getWeatherDescription }) => {
 
         {todayForecast(
           hoursFormat(1),
-          data.daily.weathercode[1],
+          data.hourly.weathercode[hoursFormat(1) + 23],
           data.hourly.temperature_2m[hoursFormat(1) + 23]
         )}
 
         {todayForecast(
           hoursFormat(2),
-          data.daily.weathercode[2],
+          data.hourly.weathercode[hoursFormat(2) + 23],
           data.hourly.temperature_2m[hoursFormat(2) + 23]
         )}
 
         {todayForecast(
           hoursFormat(3),
-          data.daily.weathercode[3],
+          data.hourly.weathercode[hoursFormat(3) + 23],
           data.hourly.temperature_2m[hoursFormat(3) + 23]
         )}
 
         {todayForecast(
           hoursFormat(4),
-          data.daily.weathercode[4],
+          data.hourly.weathercode[hoursFormat(4) + 23],
           data.hourly.temperature_2m[hoursFormat(4) + 23]
         )}
 
         {todayForecast(
           hoursFormat(5),
-          data.daily.weathercode[5],
+          data.hourly.weathercode[hoursFormat(5) + 23],
           data.hourly.temperature_2m[hoursFormat(5) + 23]
         )}
       </div>

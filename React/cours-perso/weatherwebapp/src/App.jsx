@@ -33,7 +33,9 @@ function App() {
         .get(
           `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m,relativehumidity_2m,apparent_temperature,is_day,precipitation,weathercode&hourly=temperature_2m,relativehumidity_2m,precipitation,weathercode,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,apparent_temperature_min,uv_index_max&timezone=GMT&past_days=1&models=best_match`
         )
-        .then((res) => setData(res.data));
+        .then((res) => {
+          setData(res.data);
+        });
     }
   }, [location]);
 
