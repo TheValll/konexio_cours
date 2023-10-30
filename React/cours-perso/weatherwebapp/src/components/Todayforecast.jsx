@@ -1,43 +1,74 @@
 import React from "react";
 
-const Todayforecast = () => {
-  return (
+const Todayforecast = ({ data, getWeatherDescription }) => {
+  const hoursFormat = (hoursToAdd) => {
+    const date = new Date();
+    date.setHours(date.getHours() + hoursToAdd);
+    const hour = date.getHours();
+    return hour;
+  };
+
+  const todayForecast = (hours, code, hoursTemps) => {
+    return (
+      <div className="forecastlist">
+        <p>{hours}h</p>
+        <img
+          src={`./assets/icons/${getWeatherDescription(code)}.png`}
+          alt="in 1h icon"
+        />
+        <p>{hoursTemps}°C</p>
+      </div>
+    );
+  };
+  return data ? (
     <div className="today-forecast">
       <h3>Today forecast</h3>
       <div className="ligne"></div>
       <div className="today-forecast-container">
         <div className="forecastlist">
           <p>Now</p>
-          <img src="./assets/icons/rain.png" alt="now icon" />
-          <p>23°C</p>
+          <img
+            src={`./assets/icons/${getWeatherDescription(
+              data.current.weathercode
+            )}.png`}
+            alt="in 1h icon"
+          />
+          <p>{data.current.temperature_2m}°C</p>
         </div>
-        <div className="forecastlist">
-          <p>19h</p>
-          <img src="./assets/icons/sunny.png" alt="in 1h icon" />
-          <p>21°C</p>
-        </div>
-        <div className="forecastlist">
-          <p>20h</p>
-          <img src="./assets/icons/snow.png" alt="in 1h icon" />
-          <p>20°C</p>
-        </div>
-        <div className="forecastlist">
-          <p>20h</p>
-          <img src="./assets/icons/snow.png" alt="in 1h icon" />
-          <p>20°C</p>
-        </div>
-        <div className="forecastlist">
-          <p>20h</p>
-          <img src="./assets/icons/snow.png" alt="in 1h icon" />
-          <p>20°C</p>
-        </div>
-        <div className="forecastlist">
-          <p>20h</p>
-          <img src="./assets/icons/snow.png" alt="in 1h icon" />
-          <p>20°C</p>
-        </div>
+
+        {todayForecast(
+          hoursFormat(1),
+          data.daily.weathercode[1],
+          data.hourly.temperature_2m[hoursFormat(1) + 23]
+        )}
+
+        {todayForecast(
+          hoursFormat(2),
+          data.daily.weathercode[2],
+          data.hourly.temperature_2m[hoursFormat(2) + 23]
+        )}
+
+        {todayForecast(
+          hoursFormat(3),
+          data.daily.weathercode[3],
+          data.hourly.temperature_2m[hoursFormat(3) + 23]
+        )}
+
+        {todayForecast(
+          hoursFormat(4),
+          data.daily.weathercode[4],
+          data.hourly.temperature_2m[hoursFormat(4) + 23]
+        )}
+
+        {todayForecast(
+          hoursFormat(5),
+          data.daily.weathercode[5],
+          data.hourly.temperature_2m[hoursFormat(5) + 23]
+        )}
       </div>
     </div>
+  ) : (
+    <div>Loading...</div>
   );
 };
 

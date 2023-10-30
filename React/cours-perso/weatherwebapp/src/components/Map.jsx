@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
 
-const Map = () => {
+const Map = ({ location }) => {
   const mapContainer = useRef(null);
   const map = useRef(null);
 
   useEffect(() => {
-    if (!map.current) {
+    if (!map.current && location) {
       map.current = L.map(mapContainer.current).setView(
-        [39.1001059, -77.9430519],
+        [location.latitude, location.longitude],
         13
       );
       L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -16,6 +16,7 @@ const Map = () => {
         attribution:
           '&copy; <a href="https://github.com/TheValll" target="_blank">TheValllMap</a>',
       }).addTo(map.current);
+      L.marker([location.latitude, location.longitude]).addTo(map.current); // ajouter le marqueur ici
     }
 
     return () => {
@@ -24,14 +25,14 @@ const Map = () => {
         map.current = null;
       }
     };
-  }, []);
+  }, [location]);
 
   return (
     <div
       className="map-container"
       style={{
         height: "390px",
-        width: "100%",
+        width: "450px",
         margin: "10px auto",
       }}
     >

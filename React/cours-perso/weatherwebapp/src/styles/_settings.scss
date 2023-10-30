@@ -10,6 +10,7 @@ body {
   background: url(../assets/img/bg.jpg) center/cover no-repeat;
   backdrop-filter: blur(10px);
   font-family: "Open Sans", sans-serif;
+  overflow: hidden;
   .app {
     display: grid;
     grid-template-columns: 40% 60%;
@@ -24,7 +25,7 @@ body {
   }
   .app-right {
     gap: 30px;
-    margin: 50px;
+    margin: 40px;
     display: flex;
     height: 650px;
   }
