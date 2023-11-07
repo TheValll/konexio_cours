@@ -1,6 +1,7 @@
 import React from "react";
 
 const Card = ({ el }) => {
+  console.log(el);
   let id = el.id;
   const convertDate = (dateString) => {
     const dateParts = dateString.split("-");
