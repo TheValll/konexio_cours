@@ -1,23 +1,23 @@
 {
   "articles": [
     {
-      "author": "From Scratch",
-      "content": "      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloribus vel sunt laborum eos enim odit maxime corporis vero nihil voluptatum a, ullam delectus ad sit. Odit quis adipisci illo sit porro recusandae? Sequi, dolorum repellendus doloremque qui tempora beatae.",
+      "author": "Hedi Rivas",
+      "content": "Je suis le meilleur formateur en JS :tf:",
       "date": 1621530288602,
       "id": 1
     },
     {
-      "author": "Bill Gates",
-      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloribus vel sunt laborum eos enim odit maxime corporis vero nihil voluptatum a, ullam delectus ad sit. Odit quis adipisci illo sit porro recusandae? Sequi, dolorum repellendus doloremque qui tempora beatae.\n\nLorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloribus vel sunt laborum eos enim odit maxime corporis vero nihil voluptatum a, ullam delectus ad sit. Odit quis adipisci illo sit porro recusandae? Sequi, dolorum repellendus doloremque qui tempora beatae.",
+      "author": "TheVal",
+      "content": "Non",
       "date": 1621536029778,
-      "updateDate": 1698532846800,
+      "updateDate": 1698741906454,
       "id": 2
     },
     {
-      "author": "Mark Zuckerberg",
-      "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloribus vel sunt laborum eos enim odit maxime corporis vero nihil voluptatum a, ullam delectus ad sit. Odit quis adipisci illo sit porro recusandae? Sequi, dolorum repellendus doloremque qui tempora beatae.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente doloribus vel sunt laborum eos enim odit maxime corporis vero nihil voluptatum a, ullam delectus ad sit. ",
+      "author": "Hedi Rivas",
+      "content": "Sisi",
       "date": 1621536056135,
-      "updateDate": 1698533278110,
+      "updateDate": 1698745183482,
       "id": 3
     }
   ]

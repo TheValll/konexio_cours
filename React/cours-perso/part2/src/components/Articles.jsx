@@ -18,8 +18,8 @@ const Articles = ({ data }) => {
   };
 
   const handleDelete = () => {
+    document.getElementById(data.id).remove();
     axios.delete("http://localhost:3004/articles/" + data.id);
-    window.location.reload();
   };
 
   const dateFormat = (date) => {
@@ -36,6 +36,7 @@ const Articles = ({ data }) => {
   return (
     <div
       className="article"
+      id={data.id}
       style={{
         background: isEditing ? "rgba(0, 205, 255, 0.2)" : "white",
       }}
