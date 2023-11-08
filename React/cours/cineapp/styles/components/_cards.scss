@@ -49,6 +49,19 @@
         font-family: "Poppins", sans-serif;
         margin: 10px auto 5px auto;
       }
+      .user-vote {
+        display: flex;
+        align-items: center;
+        p {
+          color: white;
+          font-family: "Poppins", sans-serif;
+          margin: 0 10px 0 0;
+        }
+        i {
+          font-size: 1.1rem;
+          transition: color 0.3s;
+        }
+      }
       .titleSynopsis {
         color: white;
         font-family: "Poppins", sans-serif;

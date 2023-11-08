@@ -19,7 +19,7 @@ const Navbar = () => {
         </li>
         <li className={getClassName("/favorites")}>
           <Link href="/favorites" legacyBehavior>
-            <a>Mes films de merde</a>
+            <a>My favorites films</a>
           </Link>
         </li>
       </ul>

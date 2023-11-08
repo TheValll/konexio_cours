@@ -20,17 +20,17 @@ const Home = () => {
   return (
     <div className="app">
       <div className="search">
-        <h1>The Movie Search Website De Fou Furieux T'as Vu ?</h1>
+        <h1>The Movie Search Website</h1>
         <div className="btn-container">
           <input
             type="text"
-            placeholder="PLACE TON FILM ICI CONNARD"
+            placeholder="Enter a film"
             id="input"
             onChange={(e) => setUserInput(e.target.value)}
           />
           <input
             type="submit"
-            value="Recherche ton film de merde"
+            value="Research your film"
             id="submit"
             onClick={() => fetchData()}
           />

@@ -27,10 +27,23 @@ const Favorites = () => {
                   </p>
                   <p className="date">Sortie le : {movie.date}</p>
                   <p className="note">{movie.note} / 10 ⭐</p>
-                  <p className="titleSynopsis">Synopsis</p>
+                  <div className="user-vote">
+                    {movie.personalNote ? (
+                      <p>
+                        Your vote : {Number(movie.personalNote) * 2} / 10 ⭐
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  {movie.synopsis ? (
+                    <p className="titleSynopsis">Synopsis</p>
+                  ) : (
+                    ""
+                  )}
                   <p className="synopsis">{movie.synopsis}</p>
                   <button id="fav-btn" onClick={() => removeFavorite(key)}>
-                    Enlever ce film
+                    Delete from your list
                   </button>
                 </div>
               </div>
