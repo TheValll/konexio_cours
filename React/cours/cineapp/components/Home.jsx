@@ -17,9 +17,23 @@ const Home = () => {
     }
   };
 
+  let [index, setIndex] = useState(1);
+  const randomImg = function () {
+    return setIndex(Math.floor(Math.random() * 22 + 1));
+  };
+
   return (
     <div className="app">
       <div className="search">
+        <img
+          src={`/pfp/${index}.jpg`}
+          alt="user pfp"
+          className="userImg"
+          onClick={() => randomImg()}
+        />
+        <p>
+          Click me <i class="fa-solid fa-arrow-up"></i>
+        </p>
         <h1>The Movie Search Website</h1>
         <div className="btn-container">
           <input
