@@ -1,55 +1,90 @@
 .friends-right {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   .messages {
-    margin: 50px;
+    margin: 20px;
     p {
       color: white;
       font-family: "Poppins", sans-serif;
     }
-    .message {
-      margin: 30px auto;
-      .from-info {
-        display: flex;
-        align-items: flex-start;
-        img {
-          border-radius: 300px;
-          height: 50px;
+    .messages-container {
+      height: 630px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      .message {
+        margin: 10px;
+        .from-info {
+          display: flex;
+          align-items: flex-start;
+          img {
+            border-radius: 300px;
+            height: 50px;
+          }
+          .message-pseudo {
+            color: white;
+            font-family: "Poppins", sans-serif;
+            margin: 0 10px;
+          }
+          .message-at {
+            color: gray;
+            font-family: "Poppins", sans-serif;
+            font-size: 0.7rem;
+            margin-top: 5px;
+          }
         }
-        .message-pseudo {
+        .message-content {
           color: white;
           font-family: "Poppins", sans-serif;
-          margin: 0 10px;
-        }
-        .message-at {
-          color: gray;
-          font-family: "Poppins", sans-serif;
-          font-size: 0.7rem;
-          margin-top: 5px;
+          margin-left: 60px;
+          margin-top: -20px;
+          font-size: 1.2rem;
         }
       }
-      .message-content {
-        color: white;
-        font-family: "Poppins", sans-serif;
-        margin-left: 60px;
-        margin-top: -20px;
-        font-size: 1.2rem;
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      &::-webkit-scrollbar-thumb:hover {
+        background: #555;
       }
     }
-    .input-message {
-      width: 100%;
-      height: 50px;
-      border: none;
-      outline: none;
+    .message-input {
+      display: flex;
       background-color: #1c1e20;
       border-radius: 10px;
-      padding: 10px;
-      color: white;
-      font-family: "Poppins", sans-serif;
-      &::placeholder {
+      height: 50px;
+      width: 100%;
+      .input-message {
+        flex: 1;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding: 10px;
+        color: white;
+        background-color: transparent;
+        font-family: "Poppins", sans-serif;
+        &::placeholder {
+          color: white;
+          font-family: "Poppins", sans-serif;
+        }
+      }
+      .submit-message {
+        cursor: pointer;
+        height: 50px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding: 10px;
         color: white;
         font-family: "Poppins", sans-serif;
+        background-color: transparent;
       }
     }
   }
