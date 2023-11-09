@@ -1,0 +1,160 @@
+{
+  "user": [
+    {
+      "pseudo": "Val",
+      "id": "thevalll",
+      "statut": "do not disturb",
+      "custom_statut": "hello word",
+      "pfp": "https://i.pinimg.com/736x/33/27/5f/33275fe3315fe719afd03f0435d74d95.jpg"
+    }
+  ],
+  "friends": [
+    {
+      "pseudo": "birdy",
+      "id": "bxrdyy",
+      "statut": "offline",
+      "custom_statut": "",
+      "pfp": "https://pfps.gg/assets/pfps/1148-egirl-neutral-pfp.png"
+    },
+    {
+      "pseudo": "Hedz",
+      "id": "hedz4204",
+      "statut": "idle",
+      "custom_statut": "",
+      "pfp": "https://cdn.discordapp.com/avatars/375375488652148746/28ee35c64edbd2039a977e3fb27b84c8.webp?size=128"
+    },
+    {
+      "pseudo": "pierre_Mgt",
+      "id": "pierre_mgt",
+      "statut": "online",
+      "custom_statut": "skye",
+      "pfp": "https://cdn.discordapp.com/avatars/439560376942723073/b053efdae8c5cf1a2d4937d0cb05d7d9.webp?size=128"
+    }
+  ],
+  "server": [
+    {
+      "server_name": "TheLab",
+      "server_users": [
+        {
+          "pseudo": "Val",
+          "id": "thevalll",
+          "statut": "do not disturb",
+          "custom_statut": "hello word",
+          "pfp": "https://i.pinimg.com/736x/33/27/5f/33275fe3315fe719afd03f0435d74d95.jpg"
+        },
+        {
+          "pseudo": "XiaoShin",
+          "id": "xiaoshin",
+          "statut": "do not disturb",
+          "custom_statut": "oui oui",
+          "pfp": "https://cdn.discordapp.com/avatars/456495811594027070/a644329bdfa5eba0b566157ca95b2815.webp?size=128"
+        },
+        {
+          "pseudo": "birdy",
+          "id": "bxrdyy",
+          "statut": "offline",
+          "custom_statut": "",
+          "pfp": "https://pfps.gg/assets/pfps/1148-egirl-neutral-pfp.png"
+        }
+      ],
+      "server_pfp": "https://pbs.twimg.com/media/FbA5p6-WIAAPXfl.png",
+      "channel": [
+        {
+          "channel_title": "accueil",
+          "messages": [
+            {
+              "message_content": "bonjour",
+              "from": "bxrdyy",
+              "at": "Today at 12h06"
+            },
+            {
+              "message_content": "Bonsoir ;)",
+              "from": "thevalll",
+              "at": "Today at 12h09"
+            }
+          ]
+        },
+        {
+          "channel_title": "general",
+          "messages": [
+            {
+              "message_content": "je m'appelle Pierre",
+              "from": "pierre_mgt",
+              "at": "09h56"
+            },
+            {
+              "message_content": "D'accord",
+              "from": "thevalll",
+              "at": "Monday at 12h14"
+            },
+            {
+              "message_content": "bonsoir",
+              "from": "xiaoshin",
+              "at": "Monday at 12h47"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "server_name": "JavaScript",
+      "server_users": [
+        {
+          "pseudo": "Val",
+          "id": "thevalll",
+          "statut": "do not disturb",
+          "custom_statut": "hello word",
+          "pfp": "https://i.pinimg.com/736x/33/27/5f/33275fe3315fe719afd03f0435d74d95.jpg"
+        }
+      ],
+      "server_pfp": "https://cdn.imgchest.com/files/3yrgckvp8g4.png",
+      "channel": [
+        {
+          "channel_title": "accueil",
+          "messages": [
+            {
+              "message_content": "vivce js",
+              "from": "thevalll",
+              "at": "12h06"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "direct_message": [
+    {
+      "pseudo": "birdy",
+      "id": "bxrdyy",
+      "statut": "offline",
+      "custom_statut": "",
+      "pfp": "https://pfps.gg/assets/pfps/1148-egirl-neutral-pfp.png",
+      "messages": [
+        {
+          "from": "birdy",
+          "content": "Salut",
+          "at": "Today at 23h04"
+        },
+        {
+          "from": "Val",
+          "content": "Yooo :)",
+          "at": "Today at 23h08"
+        }
+      ]
+    },
+    {
+      "pseudo": "pierre_Mgt",
+      "id": "pierre_mgt",
+      "statut": "online",
+      "custom_statut": "skye",
+      "pfp": "https://cdn.discordapp.com/avatars/439560376942723073/b053efdae8c5cf1a2d4937d0cb05d7d9.webp?size=128",
+      "messages": [
+        {
+          "from": "pierre_Mgt",
+          "content": "Saluttt",
+          "at": "Today at 00h54"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  height: 728px;
+  .container-left {
+    width: 75px;
+  }
+  .container-right {
+    width: 100%;
+  }
+}
