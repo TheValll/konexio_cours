@@ -140,3 +140,10 @@ function leetGenerator(message) {
 }
 
 console.log(leetGenerator("This language is so funny"));
+
+let letter = "a";
+console.log(letter);
+letter = "b";
+console.log(letter);
+letter = "c";
+console.log(letter);
