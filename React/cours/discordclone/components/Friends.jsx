@@ -98,24 +98,26 @@ const Friends = () => {
       <div className="friends-right">
         {currentMessageDisplay && currentMessageDisplay.messages && (
           <div className="messages">
-            <div className="messages-container">
-              {currentMessageDisplay.messages.map((message, index) => (
-                <div className="message" key={index}>
-                  <div className="from-info">
-                    <img
-                      src={
-                        message.from === userInfo.pseudo
-                          ? userInfo.pfp
-                          : currentMessageDisplay.pfp
-                      }
-                      alt="user pfp"
-                    />
-                    <p className="message-pseudo">{message.from}</p>
-                    <p className="message-at">{message.at}</p>
+            <div className="conversation">
+              <div className="messages-container">
+                {currentMessageDisplay.messages.map((message, index) => (
+                  <div className="message" key={index}>
+                    <div className="from-info">
+                      <img
+                        src={
+                          message.from === userInfo.pseudo
+                            ? userInfo.pfp
+                            : currentMessageDisplay.pfp
+                        }
+                        alt="user pfp"
+                      />
+                      <p className="message-pseudo">{message.from}</p>
+                      <p className="message-at">{message.at}</p>
+                    </div>
+                    <p className="message-content">{message.content}</p>
                   </div>
-                  <p className="message-content">{message.content}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
             <div className="message-input">
               <input
