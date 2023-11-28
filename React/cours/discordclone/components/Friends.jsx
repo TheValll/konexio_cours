@@ -35,6 +35,12 @@ const Friends = () => {
     setCurrentMessageContent("");
   };
 
+  // window.addEventListener("keydown", function (e) {
+  //   if (e.key === "Enter") {
+  //     postMessage();
+  //   }
+  // });
+
   const getServerListing = () => {
     axios
       .get("https://thevalll.github.io/discordclone-database/db.json")
