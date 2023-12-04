@@ -1,0 +1,13 @@
+
+-- Pour accéder à la console mysql sur MAC(WAMP) : /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+
+-- Pour accéder à la console mysql sur windows(WAMP) : C:\wamp\bin\mysql\mysql5.6.17\bin\mysql.exe -uroot -proot OU Cliquer sur l'icone WAMP en bas à droite, puis MySQL, puis MySQL console
+
+-- Pour accéder à la console mysql sur windows(XAMPP) : C:\xampp\mysql\bin\mysql.exe -uroot -proot OU Cliquer sur l'icone XAMPP en bas à droite, puis MySQL, puis MySQL console
+
+
+-- ####### LES COMMANDES DE BASE ####### --
+
+-- Afficher la liste des bases de données :
+SHOW DATABASES;
+CREATE DATABASE if not exist entreprises;
