@@ -209,3 +209,67 @@ SELECT * FROM employes WHERE service IN ('commercial', 'informatique') AND sexe=
 
 -- Afficher les employés avec un salaire de 3100e dans l'ordre alphabétique:
 SELECT * FROM employes WHERE salaire IN (3100) ORDER by nom ASC;
+
+
+-- ### OR ### --
+
+-- OR permet de combiner plusieurs conditions dans une requête SELECT
+
+-- Nom, prenom et salaire des employés qui travaillent dans le service commercial et qui ont un salaire de 1900€ ou 2300€ dans l'ordre alphabétique:
+SELECT nom, prenom, salaire FROM employes WHERE service="commercial" AND (salaire=1900 OR salaire=2300) ORDER BY nom ASC;
+
+
+-- ## GROUP BY ## --
+
+-- GROUP BY permet de regrouper les résultats d'une requête SELECT selon une valeur commune
+
+-- Sa syntaxe est la suivante :
+    SELECT `les_champs` FROM `nom_de_la_table` GROUP BY `champ`;
+
+-- Afficher le nombre d'employés par service :
+
+SELECT COUNT(*) AS nombre_employes, service FROM employes GROUP BY service;
+
+-- HAVING permet de filtrer les résultats d'une requête GROUP BY
+
+-- Sa syntaxe est la suivante :
+    SELECT `les_champs` FROM `nom_de_la_table` GROUP BY `champ` HAVING `condition`;
+    
+
+-- Afficher le nombre d'employés par service avec plus de 2 personnes:
+
+SELECT COUNT(*) AS nombre_employes, service FROM employes GROUP BY service HAVING nombre_employes > 2;
+SELECT COUNT(*) AS nombre_employes, service FROM employes GROUP BY service HAVING COUNT(*) > 2;
+
+
+
+---------- LES REQUTES D'INSERTION ----------
+
+-- INSERT INTO permet d'insérer des données dans une table
+
+-- Sa syntaxe est la suivante :
+    INSERT INTO `nom_de_la_table` (`champ1`, `champ2`, `champ3`) VALUES ('valeur1', 'valeur2', 'valeur3');  
+
+INSERT INTO `employes`(`prenom`, `nom`, `sexe`, `service`, `date_embauche`, `salaire`) VALUES ('Jean', 'Dupont', 'm', 'commercial', '2017-01-01', 2000);
+INSERT INTO `employes`(`prenom`, `nom`, `sexe`, `service`, `date_embauche`, `salaire`) VALUES ('Simon', 'Dupont', 'm', 'hacker pro', '2023-12-04', 9000);
+
+
+---------- LES REQUTES DE MODIFICATION ----------
+
+-- UPDATE permet de modifier des données dans une tableS
+
+-- Sa syntaxe est la suivante :
+    UPDATE `nom_de_la_table` SET `champ1` = 'valeur1', `champ2` = 'valeur2', `champ3` = 'valeur3' WHERE `condition`;
+
+UPDATE `employes` SET `salaire` = 2500 WHERE `id_employes` = 992;
+
+-- Modifier le salaire de Guillaume à 2500€ et son service à 'Informatique' :
+UPDATE `employes` SET `salaire` = 250000 , `service` = 'informatique' WHERE `id_employes` = 627;
+
+
+-- REPLACE INTO : Elle permet de remplacer un enregistrement par un autre. Si l'enregistrement n'existe pas, il est créé.
+
+-- Sa syntaxe est la suivante :
+    REPLACE INTO `nom_de_la_table` (`champ1`, `champ2`, `champ3`) VALUES ('valeur1', 'valeur2', 'valeur3');
+
+REPLACE INTO `employes`(`id_employes`, `prenom`, `nom`, `sexe`, `service`, `date_embauche`, `salaire`) VALUES (992, 'Romy', 'KLK', 'm', 'DEV', '2012-07-02', 2500);
