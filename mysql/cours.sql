@@ -273,3 +273,15 @@ UPDATE `employes` SET `salaire` = 250000 , `service` = 'informatique' WHERE `id_
     REPLACE INTO `nom_de_la_table` (`champ1`, `champ2`, `champ3`) VALUES ('valeur1', 'valeur2', 'valeur3');
 
 REPLACE INTO `employes`(`id_employes`, `prenom`, `nom`, `sexe`, `service`, `date_embauche`, `salaire`) VALUES (992, 'Romy', 'KLK', 'm', 'DEV', '2012-07-02', 2500);
+
+---------- LES REQUTES DE SUPPRESSION ----------
+
+-- DELETE permet de supprimer des données dans une table
+
+-- Sa syntaxe est la suivante :
+    DELETE FROM `nom_de_la_table` WHERE `condition`;
+
+DELETE FROM `employes` WHERE `id_employes` = 997;
+
+-- Supprimer tous les employés qui travaillent dans le service commercial  et qui ont un salaire inférieur à 2000€ :
+DELETE FROM employes WHERE service = 'commercial' AND salaire < 2000;
