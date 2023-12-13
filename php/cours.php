@@ -423,3 +423,345 @@ while ($row = $resultat->fetch(PDO::FETCH_ASSOC)) {
     echo " Nom : " . $row['nom'] . " | Prénom : " . $row['prenom'] . "<br>";
 }
 
+//!\\ PHP 7 : A partir de PHP 7, on peut typer les arguments et la valeur de retour d'une fonction.
+
+// declare(strict_types=1); Est une directive qui permet de typer les arguments et la valeur de retour d'une fonction.Elle doit être placée au début du fichier juste après la balise <?php.
+
+function showUser(string $nom, int $age)
+{
+    return "Bonjour $nom, vous avez $age ans <br>";
+}
+
+echo showUser("John", 35);
+echo showUser("John", "35");
+
+// Typage de la valeur de retour
+
+function isMajeur(int $age): bool
+{
+    return $age >= 18;
+}
+var_dump(isMajeur(5)); // Retourne bool(true).
+
+echo "<br>";
+// Fonction fléchée
+
+
+$addition = fn ($a, $b) => $a + $b; // On stocke la fonction dans une variable.
+
+echo $addition(1, 2); // Affiche 3.
+echo "<br>";
+
+$showData = fn ($data) => "Bonjour $data !<br>";
+
+echo $showData("John");
+
+//!\\PHP 8 : A partir de PHP 8, l'argument peut-être d'un type primitif ou d'un autre type.
+
+function concatene(string|int $a, string|int $b): string|int
+{
+    return $a . $b;
+}
+
+echo concatene("Bonjour ", "tout le monde");
+echo "<br>";
+echo concatene(1, 2);
+
+echo "<hr><h2>Les structures itératives (boucles)</h2>";
+
+echo "<h3 style='color:blue'>La boucle while</h3>";
+
+// La boucle while permet d'exécuter un bloc de code tant qu'une condition est évaluée à true.
+
+$a = 0; // Valeur de départ de la boucle.
+while ($a <= 3) // La condition(tant que $a est <= 3)
+{
+    echo $a . "--"; // On affiche la valeur de $a.
+    $a++; // On incrémente $a de 1 à chaque tour de boucle.
+}
+echo "<br>";
+$a = 0;
+while ($a <= 3) // La condition(tant que $a est <= 3)
+{
+    if ($a == 3)
+        echo $a;
+    else
+        echo $a . "--"; // On affiche la valeur de $a.
+
+    $a++; // On incrémente $a de 1 à chaque tour de boucle.
+}
+
+// Exercice 5: En utilisant une boucle while,écrivez un programme qui calcul la somme des entiers compris entre 1 et 100 et affiche le résultat.
+
+echo "<br>";
+
+// Correction
+$a = 1; // Valeur de départ de la boucle.
+$b = 0; // Somme des entiers compris entre 1 et 100.
+while ($a <= 100) {
+    $b += $a;
+    $a++; //increment de 1
+}
+echo $b; // Affiche 5050.
+
+echo "<br>";
+echo "<h3 style='color:blue'>La boucle for</h3>";
+
+// La boucle for permet d'exécuter un bloc de code un nombre de fois défini à l'avance.
+// for (initialisation; condition; sens(incrémentation ou décrémentation))
+
+for ($i = 0; $i <= 10; $i++) {
+    echo $i . "==>";
+}
+echo "<br>";
+
+echo '<select>';
+for ($j = 1; $j <= 31; $j++) {
+    echo "<option>$j</option>";
+}
+echo '</select>';
+
+// EXERCICE 6 : En utilisant une boucle for,écrivez un programme qui affiche dans une liste déroulante les années , en partant de l'année en cours et en allant jusqu'à 50 ans en arrière.Faites en sorte que votre code soit pérenne quelque soit l'année en cours.
+
+echo "<br>";
+
+
+// Correction
+echo '<select>';
+for ($d = date('Y'); $d >= date('Y') - 50; $d--) {
+    echo "<option>$d</option>";
+}
+echo '</select>';
+?>
+<select>
+    <?php
+    for ($d = 0; $d <= 50; $d++) {
+        $currentYear = date('Y');
+        $currentYear -= $d;
+        echo "<option>$currentYear</option>";
+    }
+    ?>
+</select>
+
+<?php
+
+echo "<br>";
+echo "<hr><h2>Melande de PHP et HTML</h2>";
+
+echo "<table border='1';>";
+echo "<tr>";
+echo "<td>1</td>";
+echo "<td>2</td>";
+echo "<td>3</td>";
+echo "<td>4</td>";
+echo "</tr>";
+echo "</table>";
+
+// Exercice 7 :Faire une boucle qui affiche 10 lignes de 10 cases numérotées de 0 à 99 sur plusieurs lignes dans un tableau HTML.
+
+// METHODE 1
+echo "<br>";
+echo "<table border='1'>";
+$count = 0;
+for ($i = 0; $i < 10; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < 10; $j++) {
+        echo "<td>" . $count . "</td>";
+        $count++;
+    }
+    echo "</tr>";
+}
+echo "</table>";
+
+
+echo "<br>";
+
+// METHODE 2
+echo "<table border='1'>";
+echo "<tr>";
+for ($q = 0; $q < 100; $q++) {
+
+    if ($q %  10 == 0) {
+        echo "</tr>";
+    }
+    echo "<td>$q</td>";
+};
+echo "</table>";
+
+echo "<br>";
+
+// METHODE 3
+
+echo "<table border=1>";
+
+for ($i = 0; $i < 10; $i++) {
+    echo "<tr>";
+    for ($j = 0; $j < 10; $j++) {
+        $r = $j + $i * 10;
+        echo "<td>$r</td>";
+    }
+    echo "</tr>";
+}
+echo "</table>";
+
+echo "<br>";
+
+echo "<hr><h2>Les tableaux de données (array)</h2>";
+
+// Un tableau de données ou ARRAY en anglais est une variable qui permet de conserver plusieurs valeurs.
+
+// Déclaration d'un tableau de données ARRAY
+
+$liste = array("Grégory", "Nathalie", "Emilie", "François", "Georges");
+// OU
+$liste2 = ["Grégory", "Nathalie", "Emilie", "François", "Georges"];
+
+// Affichage des données d'un tableau de données ARRAY
+// Pour afficher les données d'un tableau de données ARRAY, on utilise la fonction print_r() qui est une fonction d'affichage améliorée.Elle permet d'afficher le contenu d'une variable, d'un tableau ou d'un objet.Elle est principalement utilisée à des fins de débuggage.
+echo "<pre>"; // La balise <pre> permet de formater l'affichage du print_r().
+print_r($liste);
+echo "</pre>";
+
+
+// var_dump() est une instruction qui permet d'afficher le contenu et le type d'une variable.Elle est très utile pour le débuggage.
+echo "<pre>";
+var_dump($liste);
+echo "</pre>";
+
+// Afficher une valeur d'un tableau de données ARRAY
+echo $liste[2]; // Affiche Emilie car les tableaux de données ARRAY sont indexés à partir de 0.
+
+echo "<hr><h2>La boucle foreach</h2>";
+
+// La boucle foreach permet de parcourir un tableau de données ARRAY et d'en afficher les valeurs.
+$countryList[] = "France"; // Cette écriture est équivalente à array_push($countryList, "France");Ellle permet d'ajouter une valeur à la fin du tableau.
+$countryList[] = "Belgique";
+$countryList[] = "Allemagne";
+$countryList[] = "Espagne";
+$countryList[] = "Italie";
+$countryList[] = "Portugal";
+
+
+var_dump($countryList);
+
+// Pour parcourir un tableau de données ARRAY, on utilise la boucle foreach. qui prend deux arguments : Le tableau à parcourir et la valeur courante à chaque tour de boucle.
+foreach ($countryList as $value) {
+    echo $value . "<br>";
+}
+
+// Ici je lui passe le tableau et je récupure l'index $key et la valeur $value à chaque tour de boucle.
+foreach ($countryList as $key => $value) {   //$key contient l'index
+    // $value contient la valeur.
+    echo $key . "=>" . $value . "<br>";
+}
+
+// sizeof() ou count() permet de connaître la taille d'un tableau de données ARRAY.
+
+echo sizeof($countryList); // Affiche 6.
+echo "<br>";
+echo count($liste); // Affiche 5.
+
+// implode() permet de transformer un tableau de données ARRAY en chaîne de caractère.
+echo "<br>";
+echo implode(' -- ', $countryList); // Affiche France--Belgique--Allemagne--Espagne--Italie--Portugal.
+
+// Tableau associatif
+
+$tabUser = [
+    "prenom" => "John",
+    "nom" => "Doe",
+    "age" => 35,
+    "ville" => "Paris"
+];
+
+echo "<br>";
+echo $tabUser["prenom"]; // Affiche John.
+
+echo "<hr><h2>Les tableaux multidimensionnels</h2>";
+
+// Un tableau multidimensionnel est un tableau qui contient un ou plusieurs tableaux.
+
+$tabMulti = [
+    0 => [
+        "prenom" => "John",
+        "nom" => "Doe",
+        "age" => 35,
+        "ville" => "Paris"
+    ],
+    1 => [
+        "prenom" => "Bruno",
+        "nom" => "Doe",
+        "age" => 35,
+        "ville" => "Paris"
+    ],
+    2 => [
+        "prenom" => "Claire",
+        "nom" => "Doe",
+        "age" => 35,
+        "ville" => "Paris"
+    ]
+];
+// Afficher la ville de Bruno
+echo $tabMulti[1]["ville"]; // Affiche Paris.
+
+// Afficher le prénom de tous les utilisateurs
+foreach ($tabMulti as $value) {
+    echo $value["prenom"] . "<br>";
+}
+
+for ($i = 0; $i < sizeof($tabMulti); $i++) {
+    echo $tabMulti[$i]["prenom"] . "<br>";
+}
+
+echo "<hr><h2>Les objets</h2>";
+
+// un objet est un conteneur qui permet de regrouper des variables et des fonctions qui vont manipuler ces variables.
+
+// Une classe est un plan qui va définir la structure d'un objet.
+
+class Vehicule
+{
+    // public,private,protected represente les niveaux de visibilité des propriétés et des méthodes.
+    // public signifie que la propriété est accessible partout.
+    public $marque = "Renault"; 
+
+    // protected signifie que la propriété est accessible uniquement à l'intérieur de la classe et des classes héritières.
+    protected $couleur = "Rouge";
+
+    // private signifie que la propriété est accessible uniquement à l'intérieur de la classe.
+    private $poids = 1000;
+
+    // Une méthode est une fonction déclarée à l'intérieur d'une classe.
+
+    public function demarrer()
+    {
+        return "Je démarre";
+    }
+
+}
+
+// Un objet est une instance d'une classe.
+
+$vehicule = new Vehicule(); // Instanciation de la classe Vehicule.
+
+var_dump($vehicule); // Affiche le contenu de l'objet $vehicule.
+
+echo "<br>";
+
+echo $vehicule->demarrer(); // Affiche Je démarre.
+
+echo "<br>";
+
+echo $vehicule->marque; // Affiche Renault.
+
+echo "<br>";
+
+$vehicule->marque = "Peugeot"; // On modifie la valeur de la propriété $marque.
+
+echo $vehicule->marque; // Affiche Peugeot.
+
+echo "<br>";
+
+//echo $vehicule->couleur; // Erreur car la propriété $couleur est protected.
+
+//echo $vehicule->poids; // Erreur car la propriété $poids est private.
