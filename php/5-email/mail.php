@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $mail->Subject = 'Reception';
             $mail->Body = $htmlTable;
             $mail->AltBody = $htmlTable;
+            $mail->CharSet = 'UTF-8';
 
             $mail->send();
         } catch (Exception $e) {
