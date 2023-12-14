@@ -458,10 +458,10 @@ echo $showData("John");
 
 //!\\PHP 8 : A partir de PHP 8, l'argument peut-être d'un type primitif ou d'un autre type.
 
-function concatene(string|int $a, string|int $b): string|int
-{
-    return $a . $b;
-}
+// function concatene(string|int $a, string|int $b): string|int
+// {
+//     return $a . $b;
+// }
 
 echo concatene("Bonjour ", "tout le monde");
 echo "<br>";

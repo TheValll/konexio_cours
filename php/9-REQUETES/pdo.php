@@ -22,7 +22,7 @@ catch(Exception $e){
     die('Erreur : '.$e->getMessage());
 }
 
-// var_dump($bdd);²
+// var_dump($bdd);
 
 // echo "<pre>";
 // print_r(get_declared_classes());
@@ -65,28 +65,100 @@ echo "<h2>SELECT DELETE, UPDATE, INSERT avec query()</h2>";
 // On peux enchainer les appels à la méthode fetch() pour traiter plusieurs résultats
 // $bdd->query("SELECT * FROM employes WHERE prenom = 'Amandine'")->fetch(PDO::FETCH_ASSOC);
 
-$resultat3 = $bdd->query("SELECT * FROM employes")->fetchAll(PDO::FETCH_ASSOC);
+// $resultat3 = $bdd->query("SELECT * FROM employes")->fetchAll(PDO::FETCH_ASSOC);
 // var_dump($resultat3);
 // print_r($resultat3[0]['prenom']);
 
-echo "<table border='1'>";
-echo "<thead>";
+// echo "<table border='1'>";
+// echo "<thead>";
 
-foreach ($resultat3[0] as $key => $value) {
-    echo "<th>$key</th>";
-}
+// foreach ($resultat3[0] as $key => $value) {
+//     echo "<th>$key</th>";
+// }
 
-echo "</thead>";
+// echo "</thead>";
 
-foreach ($resultat3 as $key => $employe) {
-    echo "<tr>";
-    echo "<th>" . $employe['id_employe'] . "</th>";
-    echo "<th>" . $employe['prenom'] . "</th>";
-    echo "<th>" . $employe['nom'] . "</th>";
-    echo "<th>" . $employe['sexe'] . "</th>";
-    echo "<th>" . $employe['service'] . "</th>";
-    echo "<th>" . $employe['date_embauche'] . "</th>";
-    echo "<th>" . $employe['salaire'] . "</th>";
-    echo "</tr>";
-}
-echo "</table>";
+// foreach ($resultat3 as $key => $employe) {
+//     echo "<tr>";
+//     foreach ($employe as $key2 => $value) {
+//         echo "<td>$value</td>";
+//     }
+//     echo "</tr>";
+// }
+// echo "</table>";
+
+
+// getColumnMeta() : Retourne les métadonnées d'une colonne issue d'un résultat PDOStatement
+
+// $resultat4 = $bdd->query("SELECT * FROM employes");
+
+// echo "<table border='1'>";
+// echo "<thead>";
+// echo "<tr>";
+// for ($i=0; $i < $resultat4->columnCount(); $i++) { 
+//     echo "<th>" . $resultat4->getColumnMeta($i)['name'] . "</th>";
+// }
+// echo "</tr>";
+// echo "</thead>";
+// echo "<tbody>";
+// while($employe = $resultat4->fetch(PDO::FETCH_ASSOC)){
+//     echo "<tr>";
+//     foreach ($employe as $key => $value) {
+//         echo "<td>$value</td>";
+//     }
+//     echo "</tr>";
+// }
+// echo "</tbody>";
+// echo "</table>";
+
+
+// Requête préparée avec PREPARE() et EXECUTE()
+
+echo "<h2>Requête préparée avec PREPARE() + EXECUTE()</h2>";
+
+// La requête préparée est préconisée si vous exécutez plusieurs fois la même requête et ainsi éviter de répéter le cycle complet analyse / interprétation / exécution réalisé par le SGBD (gain de performance)
+// Aussi, cela permet de se prémunir des injections SQL (tentative de piratage) en neutralisant les caractères spéciaux avec la méthode bindParam() ou bindValue()
+
+// prepare() : méthode de l'objet PDOStatement qui permet de préparer la requête mais ne l'exécute pas
+
+// execute() : méthode de l'objet PDOStatement qui permet d'exécuter une requête préparée
+
+echo "<h3>Requête préparée avec BINDPARAM()</h3>";
+
+// Recupération les informations de l'employé qui s'appelle Chloé
+
+// $prenom = 'Chloé';
+
+// $request = $bdd->prepare("SELECT * FROM employes WHERE prenom = :prenom");
+// // :prenom est un marqueur nominatif qui est en attente d'une valeur
+
+// $request->bindParam(':prenom', $prenom, PDO::PARAM_STR); // bindParam() reçoit exclusivement une variable vers laquelle pointe le marqueur, on ne peut pas y mettre une valeur directement
+
+// // PDO::PARAM_STR : type de la donnée attendue par le marqueur, ici une chaîne de caractères
+// // PDO::PARAM_INT : type de la donnée attendue par le marqueur, ici un entier
+// // PDO::PARAM_BOOL : type de la donnée attendue par le marqueur, ici un booléen
+// // PDO::PARAM_NULL : type de la donnée attendue par le marqueur, ici NULL
+
+// // Si le paramètre est de type string, il n'est pas obligatoire de mettre le type en 3ème argument
+
+// $request->execute();
+
+// // execute() : méthode de l'objet PDOStatement qui permet d'exécuter une requête préparée
+
+// $donnees = $request->fetch(PDO::FETCH_ASSOC);
+// var_dump($donnees);
+
+// echo "Bonjour je suis $donnees[prenom] $donnees[nom] du service $donnees[service] <br>";
+
+
+echo "<h3>Requête préparée avec BINDVALUE()</h3>";
+
+// Recupération les informations de l'employé qui s'appelle Chloé
+
+// $prenom = 'Chloé';
+// $request2 = $bdd->prepare("SELECT * FROM employes WHERE prenom = :prenom");
+// $request2->bindValue(':prenom', $prenom, PDO::PARAM_STR); // bindValue() reçoit une variable ou une valeur directement
+// $request2->execute();
+// $donnees2 = $request2->fetch(PDO::FETCH_ASSOC);
+// var_dump($donnees2);
+// echo "Bonjour je suis $donnees2[prenom] $donnees2[nom] du service $donnees2[service] <br>";

@@ -94,7 +94,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         fwrite($ficher, $price . "\n");
         fwrite($ficher, $description . "\n");
-        fwrite($ficher, $link . "\n");
+        fwrite($ficher, $link . "\n");  
+        fwrite($ficher, " \n");  
         fclose($ficher);
     }
 }
