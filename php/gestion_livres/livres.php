@@ -5,14 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
+  <style>
+        *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Popins, sans-serif;
+    }
+    body{
+        background-color: #eee;
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #333;
+        color: white;
+        padding: 10px
+    }
+    nav ul{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        list-style-type: none;
+    }
+    nav ul li a{
+        text-decoration: none;
+        color: white;
+        margin: 0 10px;
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin: 30px auto;
+        width: 50%;
+        height: 100%;
+        background-color: white;
+        padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        font-size: 1.2em;
+    }
+    input{
+      margin: 5px 0;
+    }
+    #submit{
+      margin: 10px 0;
+        width: 100px;
+        height: 50px;
+        background-color: #333;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.2em;
+    }
+    footer{
+        background-color: #333;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        height: 75px;
+        margin-top: auto;
+    }
+  </style>
   <body>
-    <h1>Livres</h1>
+  <header>
+  <h1>Livres</h1>
     <nav>
       <ul>
         <li><a href="home.php">Accueil</a></li>
         <li><a href="#">Livres</a></li>
       </ul>
     </nav>
+  </header>
     <form action="details.php" method="POST">
       <div>
         <label for="title">Titre</label>
@@ -71,10 +143,10 @@
         <label for="link">Lien vers la page d'achat</label>
         <input type="text" name="link" id="link" />
       </div>
-      <input type="submit" value="Envoyer" />
+      <input type="submit" value="Envoyer" id="submit"/>
     </form>
     <footer>
-      <p>© 2020 - Tous droits réservés</p>
+      <p>© 2023 - Tous droits réservés</p>
       <p>Valentin Massonniere</p>
       <?php
         // Afficher la date du jour
