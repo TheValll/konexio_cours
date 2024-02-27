@@ -463,9 +463,9 @@ echo $showData("John");
 //     return $a . $b;
 // }
 
-echo concatene("Bonjour ", "tout le monde");
-echo "<br>";
-echo concatene(1, 2);
+// echo concatene("Bonjour ", "tout le monde");
+// echo "<br>";
+// echo concatene2(1, 2);
 
 echo "<hr><h2>Les structures itératives (boucles)</h2>";
 
