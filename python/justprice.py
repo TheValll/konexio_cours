@@ -13,4 +13,4 @@ while True:
         print("Too high!")
     else:
         print(f"Congratulations! You found the price in {attempts} attempts!")
-        break
+        break  
