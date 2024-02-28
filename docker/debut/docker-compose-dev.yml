@@ -1,0 +1,18 @@
+version: "3"
+services:
+  functions:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: streamlit:latest
+    container_name: streamlit
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8501:8501"
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /usr/src/app
+    volumes:
+      - ./app/:/usr/src/app/
