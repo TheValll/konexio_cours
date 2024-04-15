@@ -8,7 +8,14 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-# mycursor.execute("USE mysql")
-# mycursor.execute("SELECT * FROM user")
 
-myresult = mycursor.fetchall()
+mycursor.execute("USE konexiocours")
+
+mycursor.execute("SELECT promo, adresse, nom, prenom FROM apprenants")
+apprenants = mycursor.fetchall()
+
+mycursor.execute("SELECT adresse, nom FROM entreprises")
+entreprises = mycursor.fetchall()
+
+mycursor.close()
+mydb.close()
