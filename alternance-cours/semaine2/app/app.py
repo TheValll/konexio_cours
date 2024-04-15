@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
 from geopy.geocoders import Nominatim
-from db import *
+import pandas as pd
+import json
 
 def get_latitude_longitude(address):
     loc = Nominatim(user_agent="Geopy Library")
@@ -14,31 +15,27 @@ def get_distance(latitude1, longitude1, latitude2, longitude2):
     api_data = response.json()
     return api_data
 
+def convert_csv_to_json(uploaded_file):
+    data = pd.read_xlsx(uploaded_file)
+    json_data = data.to_json(orient='records')
+    try:
+        json_obj = json.loads(json_data)
+        with open('data.json', 'w') as f:
+            json.dump(json_obj, f)
+            for row in json_obj:
+                st.write(row)
+    except Exception as e:
+        st.write(f"Erreur lors de l'écriture du fichier : {e}")
+
 # Call the Nominatim API
 loc = Nominatim(user_agent="Geopy Library")
 
 st.title('Application')
 
-apprenants_table = []
-for row in apprenants:
-    apprenants_table.append(row)
+uploaded_files = st.file_uploader("Choose a CSV file", accept_multiple_files=False , type=['xlsx'])
 
-entreprises_table = []
-for row in entreprises:
-    entreprises_table.append(row)
-
-promo = st.selectbox('Promo', [row[0] for row in apprenants_table])
-entreprise = st.selectbox('Entreprise', [row[1] for row in entreprises_table])
-
-if st.button("Submit"):
-    if promo and entreprise:
-        apprenant_infos = [[row[1], row[2], row[3]] for row in apprenants_table if row[0] == promo]
-        entreprise_address = [row[0] for row in entreprises_table if row[1] == entreprise][0]
-        latitude2, longitude2 = get_latitude_longitude(entreprise_address)
-        for apprenant in apprenant_infos:
-            latitude1, longitude1 = get_latitude_longitude(apprenant[1])
-            itinerary = get_distance(latitude1, longitude1, latitude2, longitude2)
-            st.write(itinerary)
-            # st.write(f"Distance from {apprenant_infos[2]}{apprenant_infos[3]} to {entreprise_address}: {distance['rows'][0]['elements'][0]['distance']['text']}")
+if st.button('Submit'):
+    if uploaded_files:
+        data = convert_csv_to_json(uploaded_files) 
     else:
-        st.write("Please select a promo and an entreprise")
+        st.write("Please upload a file")
