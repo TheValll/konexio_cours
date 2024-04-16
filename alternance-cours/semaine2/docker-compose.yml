@@ -4,5 +4,3 @@ services:
     image: cours:latest
     ports:
       - "8080:8080"
-    environment:
-      ACCES_API_KEY: ${ACCES_API_KEY}
