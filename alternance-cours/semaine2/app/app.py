@@ -9,7 +9,6 @@ import streamlit as st
 import requests
 import pandas as pd
 import json
-from geopy.geocoders import Nominatim
 
 # Set up the Streamlit application
 def main():
