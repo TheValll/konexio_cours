@@ -6,9 +6,10 @@ import sys
 main_path = os.path.abspath(__file__ + "./")
 sys.path.append(main_path)
 import streamlit as st
-import requests
 import pandas as pd
-import json
+from get_latitude_longitude import get_latitude_longitude
+from get_distance import get_distance
+from convert_csv_to_json import convert_csv_to_json
 
 # Set up the Streamlit application
 def main():
@@ -30,39 +31,6 @@ footer {{visibility: hidden;}}
 </style>
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
-
-
-# ------------------- Functions -------------------
-
-# Function to get the latitude and longitude of an address
-def get_latitude_longitude(address):
-    api_url = f"https://api-adresse.data.gouv.fr/search/?q={address}&type=street"
-    response = requests.get(api_url)
-    api_data = response.json()
-    location = api_data['features'][0]['geometry']['coordinates']
-    if location:
-        return location
-    else:
-        return None
-
-# Function to get the distance between two coordinates
-def get_distance(latitude1, longitude1, latitude2, longitude2, mode='car'):
-    api_url = f"https://wxs.ign.fr/calcul/geoportail/itineraire/rest/1.0.0/route?resource=bdtopo-pgr&profile={mode}&optimization=fastest&start={longitude1},{latitude1}&end={longitude2},{latitude2}"
-    response = requests.get(api_url)
-    api_data = response.json()
-    return api_data
-
-# Function to convert a CSV file to JSON
-def convert_csv_to_json(uploaded_file):
-    data = pd.read_excel(uploaded_file)
-    json_data = data.to_json(orient='records')
-    try:
-        json_obj = json.loads(json_data)
-        return json_obj
-    except Exception as e:
-        st.write(f"Erreur lors de l'écriture du fichier : {e}")
-
-# ------------------------------------------------
 
 # Create a file uploader
 uploaded_files = st.file_uploader("Choose a XLSX file", accept_multiple_files=False , type=['xlsx'])
