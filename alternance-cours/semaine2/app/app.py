@@ -64,10 +64,6 @@ def convert_csv_to_json(uploaded_file):
 
 # ------------------------------------------------
 
-
-# Call the Nominatim API
-loc = Nominatim(user_agent="Geopy Library")
-
 # Create a file uploader
 uploaded_files = st.file_uploader("Choose a XLSX file", accept_multiple_files=False , type=['xlsx'])
 
