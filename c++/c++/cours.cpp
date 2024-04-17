@@ -29,8 +29,8 @@ struct Car{
 
 void display_car(const Car& car) {
     std::cout << "Marque : " << car.brand << "\n";
-    std::cout << "Modèle : " << car.model << "\n";
-    std::cout << "Année : " << car.year << "\n";
+    std::cout << "Modï¿½le : " << car.model << "\n";
+    std::cout << "Annï¿½e : " << car.year << "\n";
 }
 
 int main()
