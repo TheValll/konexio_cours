@@ -26,11 +26,11 @@ def set_data(uploaded_files, entreprise_adresses):
             distance_calculator = DistanceCalculator(entreprise_adresses, f"{people['Adresse']}, {people['Code postal']}, {people['Ville']}")
 
             # Get the latitude and longitude of the student address.
-            distance_voiture_value = distance_calculator.distance_voiture()
-            distance_pieton_value = distance_calculator.distance_pieton()
-            temps_voiture_value = distance_calculator.temps_voiture()
-            temps_pieton_value = distance_calculator.temps_pieton()
-            temps_velo_value = distance_calculator.temps_velo()
+            distance_voiture_value = distance_calculator.route_voiture()[0]
+            distance_pieton_value = distance_calculator.route_pieton()[0]
+            temps_voiture_value = distance_calculator.route_voiture()[1]
+            temps_pieton_value = distance_calculator.route_pieton()[1]
+            temps_velo_value = temps_pieton_value * 0.7 if temps_pieton_value else None
 
             # Append the data to the lists.
             nom.append(people['Nom'])

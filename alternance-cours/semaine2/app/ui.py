@@ -35,7 +35,10 @@ entreprise_adresses = st.text_input("Entrez l'adresse de l'entreprise", placehol
 # Create a button to calculate the distance between the company and its students.
 if st.button('Calculer la distance'):
     if uploaded_files:
-        data = set_data(uploaded_files, entreprise_adresses)
+        if entreprise_adresses:
+            data = set_data(uploaded_files, entreprise_adresses)
+        else:
+            st.write("Veuillez entrer l'adresse de l'entreprise.")
 
         # Create a DataFrame to display the data.
         if data["nom"] and data["prenom"] and data["distances_voiture_list"] and data["temps_voiture_list"] and data["distances_pieton_list"] and data["temps_pieton_list"] and data["temps_velo_list"]:
