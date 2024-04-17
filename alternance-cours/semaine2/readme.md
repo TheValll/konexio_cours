@@ -66,5 +66,3 @@ Exemple de structure :
 | ------ | ------ | --------------------- | ----------- | ----- |
 | Dupont | Jean   | 123 Rue de la Paix    | 75000       | Paris |
 | Martin | Marie  | 456 Rue de la Liberté | 69000       | Lyon  |
-
-🚀 Prêt à lancer votre calcul de distance ?
