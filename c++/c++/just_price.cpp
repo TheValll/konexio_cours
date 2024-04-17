@@ -34,9 +34,9 @@ void game() {
     }
 }
 
-int main() {
-    do {
-        game();
-    } while (!win);
-    return 0;
-}
+// int main() {
+//     do {
+//         game();
+//     } while (!win);
+//     return 0;
+// }
