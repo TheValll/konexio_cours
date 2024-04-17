@@ -12,7 +12,7 @@ Cette application utilise Streamlit pour créer une interface utilisateur intera
 
 ## Prérequis
 
-- Docker 🐳 (check [Installation for non docker](#installation-for-non-docker) si vous n'avez pas docker, python obligatoire 🐍)
+- Docker 🐳 (check [Installation pour les non docker](#installation-pour-les-non-docker) si vous n'avez pas docker, python obligatoire 🐍)
 - Git 📦
 
 ## Installation
