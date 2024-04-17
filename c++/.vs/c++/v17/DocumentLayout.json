@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A51EC7BA-5994-4B58-AE04-5D0656DDBB88}|c\u002B\u002B\\c\u002B\u002B.vcxproj|C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\just_price.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A51EC7BA-5994-4B58-AE04-5D0656DDBB88}|c\u002B\u002B\\c\u002B\u002B.vcxproj|solutionrelative:c\u002B\u002B\\just_price.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A51EC7BA-5994-4B58-AE04-5D0656DDBB88}|c\u002B\u002B\\c\u002B\u002B.vcxproj|C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\cours.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A51EC7BA-5994-4B58-AE04-5D0656DDBB88}|c\u002B\u002B\\c\u002B\u002B.vcxproj|solutionrelative:c\u002B\u002B\\cours.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "just_price.cpp",
+              "DocumentMoniker": "C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\just_price.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\\just_price.cpp",
+              "ToolTip": "C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\just_price.cpp",
+              "RelativeToolTip": "c\u002B\u002B\\just_price.cpp",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-17T14:43:31.76Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "cours.cpp",
+              "DocumentMoniker": "C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\cours.cpp",
+              "RelativeDocumentMoniker": "c\u002B\u002B\\cours.cpp",
+              "ToolTip": "C:\\Users\\Valentin\\Documents\\konexio_cours\\c\u002B\u002B\\c\u002B\u002B\\cours.cpp",
+              "RelativeToolTip": "c\u002B\u002B\\cours.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-17T10:23:37.484Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

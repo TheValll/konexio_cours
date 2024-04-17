@@ -1,11 +1,13 @@
 # Import the DistanceCalculator class and the convert_csv_to_json function.
 from distance_calculator import DistanceCalculator
 from convert_csv_to_json import convert_csv_to_json
+from get_latitude_longitude import get_latitude_longitude
 
 def set_data(uploaded_files, entreprise_adresses):
     
     # Convert the uploaded file to JSON.
         data = convert_csv_to_json(uploaded_files)
+        entreprise_coordinate = get_latitude_longitude(entreprise_adresses)
 
         # Create empty lists to store the data.
         result = {}
@@ -22,8 +24,9 @@ def set_data(uploaded_files, entreprise_adresses):
             if not all(people.get(key) for key in ['Adresse', 'Code postal', 'Ville']):
                 continue
             
+            student_coordinate = get_latitude_longitude(f"{people['Adresse']}, {people['Code postal']}, {people['Ville']}")
             # Create a instance of the DistanceCalculator class.
-            distance_calculator = DistanceCalculator(entreprise_adresses, f"{people['Adresse']}, {people['Code postal']}, {people['Ville']}")
+            distance_calculator = DistanceCalculator(entreprise_coordinate, student_coordinate)
 
             # Get the latitude and longitude of the student address.
             distance_voiture_value = distance_calculator.route_voiture()[0]
